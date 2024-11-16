@@ -102,8 +102,6 @@ const RunService = {
         RunService.drawframe(drawinstances)
     },
 
-    "Fps": 60,
-    "DeltaTime": 1,
     "GameSpeed": 1,
     "TargetFrameRate": 60,
 }
