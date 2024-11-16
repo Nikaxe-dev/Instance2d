@@ -1,6 +1,7 @@
 import { Game } from "./Instance2d.js"
 import { RenderService, Screen } from "./Instance2d.js"
 import { DrawFrame, DrawData, Enum, Vector2 } from "./Data.js"
+import { Instance } from 'https://nikaxe-dev.github.io/Instance2d/Instance2d.js';
 
 var lastupdate = Date.now()
 
@@ -40,6 +41,22 @@ const RunService = {
 
             if(instance.Rotation <= 0) {
                 instance.Rotation += 360
+            }
+        },
+
+        "Cooldown": function(speed, instance) {
+            if(instance.Playing) {
+                instance.Time -= (1/RunService.TargetFrameRate) * speed
+
+                if(instance.Time <= 0) {
+                    instance.OnEnd()
+
+                    if(instance.Loop) {
+                        instance.Time = instance.MaxTime
+                    } else {
+                        instance.Stop()
+                    }
+                }
             }
         },
     },
