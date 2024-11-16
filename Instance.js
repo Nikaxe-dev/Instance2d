@@ -91,6 +91,10 @@ const Instance = {
                 instance.Playing = true
             }
 
+            instance.Stop = function() {
+                instance.Playing = false
+            }
+
             instance.Class = "Cooldown"
 
             Instance.giveinstancefunctions(instance)
@@ -193,6 +197,12 @@ const Instance = {
             }
 
             instance.ParentValue = parent
+        }
+
+        instance.Destroy = function() {
+            if(instance.Parent) {
+                delete instance.ParentValue[instance.Id]
+            }
         }
 
         instance.GetChildren = function() {
