@@ -42,7 +42,7 @@ metatag("og:description", "Website for me to share my projects, art, and more.")
 const icon = document.createElement("link")
 document.head.appendChild(icon)
 icon.rel = "icon"
-icon.href = "/favicon.ico"
+icon.href = "favicon.ico"
 
 //navigation
 
