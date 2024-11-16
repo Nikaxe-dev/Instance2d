@@ -1,3 +1,7 @@
 # Instance2d
 JavaScript module that allows you to make games in a way similar to luau (Roblox Lua).
-[Wiki](https://nikaxe-dev.github.io/Instance2d/wiki)
+Import Instance2d from this link:
+
+https://nikaxe-dev.github.io/Instance2d/Instance2d.js
+
+[Wiki](https://github.com/Nikaxe-dev/Instance2d/wiki)
