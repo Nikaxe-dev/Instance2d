@@ -1,4 +1,4 @@
-import { DrawData, Vector2 } from "./Data.js"
+import { DrawData, Enum, Vector2 } from "./Data.js"
 
 import { Nowhere } from "./Nowhere.js"
 import { InputService } from "./InputService.js"
@@ -24,7 +24,7 @@ const Instance = {
     },
     
     "Instance2d": {
-        "new": function(id, type, position = Vector2.new(), rotation = 0, rotationvelocity = 0, velocity = Vector2.new(), size = Vector2.new(50, 50), parent = Nowhere) {
+        "new": function(id, type, position = Vector2.new(), rotation = 0, rotationvelocity = 0, velocity = Vector2.new(), size = Vector2.new(50, 50), collisiontype = Enum.CollisionType.Rectangle, parent = Nowhere) {
             // let instance = {
             //     "Id": id,
             //     "Type": type,
@@ -59,7 +59,7 @@ const Instance = {
     },
 
     "Sprite2d": {
-        "new": function(id, type, position = Vector2.new(), rotation = 0, rotationvelocity = 0, velocity = Vector2.new(), size = Vector2.new(50, 50), drawdata = DrawData.new(), zindex = 0, parent = Nowhere) {
+        "new": function(id, type, position = Vector2.new(), rotation = 0, rotationvelocity = 0, velocity = Vector2.new(), size = Vector2.new(50, 50), drawdata = DrawData.new(), zindex = 0, collisiontype = Enum.CollisionType.Rectangle, parent = Nowhere) {
             let instance = Instance.Instance2d.new(id, type, position, rotation, rotationvelocity, velocity, size, parent)
             instance.DrawData = drawdata
             instance.ZIndex = zindex
