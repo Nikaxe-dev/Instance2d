@@ -4,18 +4,18 @@ import { Nowhere } from "./Nowhere.js"
 import { InputService } from "./InputService.js"
 
 const Instance = {
-    "new": function(id, type, parent = Nowhere) {
+    "new": function(data = {Id, Type, Parent: Nowhere}) {
         let instance = {
-            "Id": id,
-            "Type": type,
+            "Id": data.Id,
+            "Type": data.Type,
             "Class": "Instance",
-            "ParentValue": parent,
+            "ParentValue": data.Parent,
         }
 
         Instance.giveinstancefunctions(instance)
 
-        if(parent == undefined) {
-            instance.Parent = Game
+        if(data.Parent == undefined) {
+            instance.Parent = Nowhere
         }
     
         instance.ParentValue[instance.Id] = instance
@@ -24,7 +24,7 @@ const Instance = {
     },
     
     "Instance2d": {
-        "new": function(id, type, position = Vector2.new(), rotation = 0, rotationvelocity = 0, velocity = Vector2.new(), size = Vector2.new(50, 50), collisiontype = Enum.CollisionType.Rectangle, parent = Nowhere) {
+        "new": function(data = {Id, Type, Parent: Nowhere, Position: Vector2.new(), Rotation: 0, RotVelocity: 0, Velocity: Vector2.new(), Size: Vector2.new(), CollisionType: Enum.CollisionType.Rectangle}) {
             // let instance = {
             //     "Id": id,
             //     "Type": type,
@@ -37,18 +37,18 @@ const Instance = {
             //     "ParentValue": parent,
             // }
 
-            let instance = Instance.new(id, type, parent)
-            instance.Position = position
-            instance.Rotation = rotation
-            instance.RotVelocity = rotationvelocity
-            instance.Velocity = velocity
-            instance.Size = size
+            let instance = Instance.new(data)
+            instance.Position = data.Position
+            instance.Rotation = data.Rotation
+            instance.RotVelocity = data.RotVelocity
+            instance.Velocity = data.Velocity
+            instance.Size = data.Size
 
             instance.Class = "Instance2d"
 
             Instance.giveinstancefunctions(instance)
 
-            if(parent == undefined) {
+            if(data.Parent == undefined) {
                 instance.Parent = Nowhere
             }
 
@@ -59,16 +59,16 @@ const Instance = {
     },
 
     "Sprite2d": {
-        "new": function(id, type, position = Vector2.new(), rotation = 0, rotationvelocity = 0, velocity = Vector2.new(), size = Vector2.new(50, 50), drawdata = DrawData.new(), zindex = 0, collisiontype = Enum.CollisionType.Rectangle, parent = Nowhere) {
-            let instance = Instance.Instance2d.new(id, type, position, rotation, rotationvelocity, velocity, size, parent)
-            instance.DrawData = drawdata
-            instance.ZIndex = zindex
+        "new": function(data = {Id, Type, Parent: Nowhere, Position: Vector2.new(), Rotation: 0, RotVelocity: 0, Velocity: Vector2.new(), Size: Vector2.new(), CollisionType: Enum.CollisionType.Rectangle, DrawData: DrawData.new(), ZIndex: 0}) {
+            let instance = Instance.Instance2d.new(data)
+            instance.DrawData = data.DrawData
+            instance.ZIndex = data.ZIndex
 
             instance.Class = "Sprite2d"
 
             Instance.giveinstancefunctions(instance)
 
-            if(parent == undefined) {
+            if(data.Parent == undefined) {
                 instance.Parent = Nowhere
             }
 
@@ -79,12 +79,12 @@ const Instance = {
     },
 
     "Cooldown": {
-        "new": function(id, type, time = 1, loop = false, onend = function() {}, parent = Nowhere) {
-            let instance = Instance.new(id, type, parent)
-            instance.MaxTime = time
-            instance.Time = time
-            instance.Loop = loop
-            instance.OnEnd = onend
+        "new": function(data = {Id, Type, Parent: Nowhere, Time: 1, Loop: false, OnEnd: function() {}}) {
+            let instance = Instance.new(data)
+            instance.MaxTime = data.Time
+            instance.Time = data.Time
+            instance.Loop = data.Loop
+            instance.OnEnd = data.OnEnd
             instance.Playing = false
 
             instance.Play = function() {
@@ -99,7 +99,7 @@ const Instance = {
 
             Instance.giveinstancefunctions(instance)
 
-            if(parent == undefined) {
+            if(data.Parent == undefined) {
                 instance.Parent = Nowhere
             }
 
@@ -110,10 +110,10 @@ const Instance = {
     },
 
     "Camera2d": {
-        "new": function(id, type, position = Vector2.new(), rotation = 0, rotationvelocity = 0, velocity = Vector2.new(), zoom = 100, parent = Nowhere) {
-            let instance = Instance.Instance2d.new(id, type, position, rotation, rotationvelocity, velocity, Vector2.new(), parent)
-            // instance.PositionValue = position
-            instance.Zoom = zoom
+        "new": function(data = {Id, Type, Parent: Nowhere, Position: Vector2.new(), Rotation: 0, RotVelocity: 0, Velocity: Vector2.new(), Zoom: 100}) {
+            let instance = Instance.Instance2d.new(data)
+            instance.Position = data.Position
+            instance.Zoom = data.Zoom
             
             // instance.__defineGetter__("Position", function() {
             //     return instance.PositionValue
@@ -129,7 +129,7 @@ const Instance = {
 
             Instance.giveinstancefunctions(instance)
 
-            if(parent == undefined) {
+            if(data.Parent == undefined) {
                 instance.Parent = Nowhere
             }
 
@@ -140,13 +140,13 @@ const Instance = {
     },
 
     "Service": {
-        "new": function(id, parent = Nowhere) {
-            let instance = Instance.new(id, id, parent)
+        "new": function(data = {Id, Parent: Nowhere}) {
+            let instance = Instance.new(data.Id, data.Id, data.Parent)
 
             Instance.giveinstancefunctions(instance)
 
-            if(parent == undefined) {
-                instance.Parent = Game
+            if(data.Parent == undefined) {
+                instance.Parent = Nowhere
             }
     
             instance.ParentValue[instance.Id] = instance

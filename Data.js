@@ -2,6 +2,7 @@ const Enum = {
     "DrawType": {
         "Rectangle": "DrawTypeRectangle",
         "Image": "DrawTypeImage",
+        "PixelImage": "DrawTypePixelImage",
         "Circle": "DrawTypeCircle",
     },
 
