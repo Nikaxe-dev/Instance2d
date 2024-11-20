@@ -4,7 +4,7 @@ import { Nowhere } from "./Nowhere.js"
 import { InputService } from "./InputService.js"
 
 const Instance = {
-    "new": function(data = {Id, Type, Parent: Nowhere}) {
+    "new": function(data = {Id: Instance.id.new(), Type, Parent: Nowhere}) {
         let instance = {
             "Id": data.Id,
             "Type": data.Type,
@@ -24,7 +24,7 @@ const Instance = {
     },
     
     "Instance2d": {
-        "new": function(data = {Id, Type, Parent: Nowhere, Position: Vector2.new(), Rotation: 0, RotVelocity: 0, Velocity: Vector2.new(), Size: Vector2.new(), CollisionType: Enum.CollisionType.Rectangle}) {
+        "new": function(data = {Id: Instance.id.new(), Type, Parent: Nowhere, Position: Vector2.new(), Rotation: 0, RotVelocity: 0, Velocity: Vector2.new(), Size: Vector2.new(), CollisionType: Enum.CollisionType.Rectangle}) {
             // let instance = {
             //     "Id": id,
             //     "Type": type,
@@ -59,7 +59,7 @@ const Instance = {
     },
 
     "Sprite2d": {
-        "new": function(data = {Id, Type, Parent: Nowhere, Position: Vector2.new(), Rotation: 0, RotVelocity: 0, Velocity: Vector2.new(), Size: Vector2.new(), CollisionType: Enum.CollisionType.Rectangle, DrawData: DrawData.new(), ZIndex: 0}) {
+        "new": function(data = {Id: Instance.id.new(), Type, Parent: Nowhere, Position: Vector2.new(), Rotation: 0, RotVelocity: 0, Velocity: Vector2.new(), Size: Vector2.new(), CollisionType: Enum.CollisionType.Rectangle, DrawData: DrawData.new(), ZIndex: 0}) {
             let instance = Instance.Instance2d.new(data)
             instance.DrawData = data.DrawData
             instance.ZIndex = data.ZIndex
@@ -79,7 +79,7 @@ const Instance = {
     },
 
     "Cooldown": {
-        "new": function(data = {Id, Type, Parent: Nowhere, Time: 1, Loop: false, OnEnd: function() {}}) {
+        "new": function(data = {Id: Instance.id.new(), Type, Parent: Nowhere, Time: 1, Loop: false, OnEnd: function() {}}) {
             let instance = Instance.new(data)
             instance.MaxTime = data.Time
             instance.Time = data.Time
@@ -110,7 +110,7 @@ const Instance = {
     },
 
     "Camera2d": {
-        "new": function(data = {Id, Type, Parent: Nowhere, Position: Vector2.new(), Rotation: 0, RotVelocity: 0, Velocity: Vector2.new(), Zoom: 100}) {
+        "new": function(data = {Id: Instance.id.new(), Type, Parent: Nowhere, Position: Vector2.new(), Rotation: 0, RotVelocity: 0, Velocity: Vector2.new(), Zoom: 100}) {
             let instance = Instance.Instance2d.new(data)
             instance.Position = data.Position
             instance.Zoom = data.Zoom
@@ -140,7 +140,7 @@ const Instance = {
     },
 
     "Service": {
-        "new": function(data = {Id, Parent: Nowhere}) {
+        "new": function(data = {Id: Instance.id.new(), Parent: Nowhere}) {
             let instance = Instance.new(data.Id, data.Id, data.Parent)
 
             Instance.giveinstancefunctions(instance)
@@ -242,6 +242,12 @@ const Instance = {
         instance.__defineSetter__("Parent", function(parent) {
             instance.Move(parent)
         })
+    },
+
+    "id": {
+        "new": function() {
+            return Math.round(Math.random()*100000000)
+        },
     },
 }
 
