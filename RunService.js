@@ -1,7 +1,7 @@
 import { Game } from "./Instance2d.js"
 import { RenderService, Screen } from "./Instance2d.js"
 import { DrawFrame, DrawData, Enum, Vector2 } from "./Data.js"
-import { Instance } from 'https://nikaxe-dev.github.io/Instance2d/Instance2d.js';
+// import { Instance } from 'https://nikaxe-dev.github.io/Instance2d/Instance2d.js';
 
 var lastupdate = Date.now()
 
@@ -76,6 +76,22 @@ const RunService = {
     },
     
     "logicframe": function(speed, instances) {
+        // const instanceorder = Object.values(instances)
+
+        // instanceorder.sort(function(a, b) {
+        //     return a.ZIndex - b.ZIndex
+        // })
+
+        // // console.log(instanceorder)
+
+        // // for(const [key, value] of Object.entries(instances)) {
+        // //     RunService.instancedrawframe(value)
+        // // }
+
+        // instanceorder.forEach(function(value) {
+        //     RunService.instancelogicframe(1, value)
+        // })
+
         for(const [key, value] of Object.entries(instances)) {
             RunService.instancelogicframe(speed, value)
         }

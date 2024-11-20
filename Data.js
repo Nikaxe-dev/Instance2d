@@ -1,9 +1,16 @@
 const Enum = {
     "DrawType": {
-        "Rectangle": "Rectangle",
-        "Image": "Image",
-        "Circle": "Circle",
-    }
+        "Rectangle": "DrawTypeRectangle",
+        "Image": "DrawTypeImage",
+        "PixelImage": "DrawTypePixelImage",
+        "Circle": "DrawTypeCircle",
+    },
+
+    "CollisionType": {
+        "Rectangle": "CollisionTypeRectangle",
+        "Defined": "CollisionTypeDefined",
+        "Custom": "CollisionTypeCustom"
+    },
 }
 
 const Vector2 = {

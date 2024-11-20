@@ -43,6 +43,28 @@ const RenderService = {
             const image = ComputeStorage.RenderService.LoadedImages[drawframe.DrawData.Type]
 
             ctx.fillStyle = drawframe.DrawData.Type
+            ctx.imageSmoothingEnabled = true
+            ctx.mozImageSmoothingEnabled = true
+            ctx.webkitImageSmoothingEnabled = true
+
+            if(Screen.Camera && !drawframe.Gui) {
+                ctx.drawImage(image, (-drawframe.Size.x / 2) * (Screen.Camera.Zoom / 100), (-drawframe.Size.y / 2) * (Screen.Camera.Zoom / 100), drawframe.Size.x * (Screen.Camera.Zoom / 100), drawframe.Size.y * (Screen.Camera.Zoom / 100))
+            } else {
+                ctx.drawImage(image, -drawframe.Size.x / 2, -drawframe.Size.y / 2, drawframe.Size.x, drawframe.Size.y)
+            }
+        }
+
+        if(drawframe.DrawData.DrawType == Enum.DrawType.PixelImage) {
+            if(!ComputeStorage.RenderService.LoadedImages[drawframe.DrawData.Type]) {
+                RenderService.LoadImage(drawframe.DrawData.Type)
+            }
+
+            const image = ComputeStorage.RenderService.LoadedImages[drawframe.DrawData.Type]
+
+            ctx.fillStyle = drawframe.DrawData.Type
+            ctx.imageSmoothingEnabled = false
+            ctx.mozImageSmoothingEnabled = false
+            ctx.webkitImageSmoothingEnabled = false
 
             if(Screen.Camera && !drawframe.Gui) {
                 ctx.drawImage(image, (-drawframe.Size.x / 2) * (Screen.Camera.Zoom / 100), (-drawframe.Size.y / 2) * (Screen.Camera.Zoom / 100), drawframe.Size.x * (Screen.Camera.Zoom / 100), drawframe.Size.y * (Screen.Camera.Zoom / 100))

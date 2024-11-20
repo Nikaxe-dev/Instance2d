@@ -44,4 +44,4 @@ RenderService.Draw(DrawFrame.new(DrawData.new(Enum.DrawType.Rectangle, Game.Back
 Instance.giveinstance(Game, "Game", "Game", "Service")
 InputService.BeginListen()
 
-export {Game, Screen, Instance, RunService, RenderService, InputService, Color3, Vector2, DrawData, Enum, ComputeStorage}
+export {Game, Screen, Instance, RunService, RenderService, InputService, Nowhere, Color3, Vector2, DrawData, Enum, ComputeStorage}
