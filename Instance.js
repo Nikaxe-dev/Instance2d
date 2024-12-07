@@ -231,6 +231,14 @@ const Instance = {
             return descendents
         }
 
+        instance.IsA = function(instanceclass = Instance | "Instance") {
+            if(typeof instanceclass == "object") {
+                return (Instance[instance.Class] == instanceclass) || (instance.Class == "Instance" & instanceclass == Instance)
+            } else if(typeof instanceclass == "string") {
+                return instance.Class == instanceclass
+            }
+        }
+
         instance.Script = function(speed, instance) {
 
         }
