@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/aeb97050-26a2-45ae-9c49-1bdc67d01ad4)
+![image](/images/Text_And_Icon.svg)
 
 ---
 
