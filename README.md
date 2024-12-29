@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Javascript where each game-object (What I call an Instance) can have a parent, and a child letting you orginize you're games in many different ways.
+Instance2d is a JavaScript framework where each game object (referred to as an Instance) can have a parent and a child, allowing you to organize your games in various ways.
 
 ## Using it
 
