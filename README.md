@@ -2,13 +2,25 @@
 
 ---
 
-`import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'https://nikaxe-dev.github.io/Instance2d/Instance2d.js'`
+## Introduction
 
 Javascript where each game-object (What I call an Instance) can have a parent, and a child letting you orginize you're games in many different ways.
 
-[Documentation](https://github.com/Nikaxe-dev/Instance2d/wiki)
+## Using it
 
-## Example of a very simple player controler written using this framework:
+To include this framework in your code, simply add this:
+
+```js
+import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'https://nikaxe-dev.github.io/Instance2d/Instance2d.js'
+```
+
+## Documentation
+
+For detailed documentation, please visit the [Instance2d Wiki](https://github.com/Nikaxe-dev/Instance2d/wiki).
+
+## Example: Simple Player Controller
+
+Here's an example of a very simple player controler written using this framework:
 
 ```js
 // Import Instance2d's modules and set the game up.
