@@ -4,6 +4,7 @@ import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vecto
 Game.BackgroundColor3 = Color3.new(0, 0, 0)
 RunService.TargetFrameRate = 60
 RunService.GameSpeed = 1
+Screen.Size = Vector2.new(window.innerWidth, window.innerHeight)
 
 // Initialize the game.
 
@@ -30,6 +31,9 @@ let cooldown = Instance.Cooldown.new(
 cooldown.Play()
 
 function gameloop() {
+    // Set the screens size (optional)
+    Screen.Size = Vector2.new(window.innerWidth, window.innerHeight)
+
     RunService.frame()
 }
 

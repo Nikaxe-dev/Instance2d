@@ -1,6 +1,6 @@
 // Import Instance2d's modules and set the game up.
 
-import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'https://nikaxe-dev.github.io/Instance2d/Instance2d.js'
+import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from '/Instance2d/Instance2d.js'
 
 // Set the games properties.
 
@@ -9,8 +9,12 @@ Game.BackgroundColor3 = Color3.new(0, 0, 0)
 
 // Target Frame Rate
 RunService.TargetFrameRate = 120
+
 // Do Disable Right Click Menu
 Game.DoDisableRightClickMenu = false
+
+// Set the screens size (defualts to the window size)
+Screen.Size = Vector2.new(window.innerWidth, window.innerHeight)
 
 // Game Speed
 RunService.GameSpeed = 1
@@ -18,6 +22,9 @@ RunService.GameSpeed = 1
 // Initialize the game with the canvas and the gameloop function.
 
 function gameloop() {
+    // Set the screens size (optional)
+    Screen.Size = Vector2.new(window.innerWidth, window.innerHeight)
+
     RunService.frame()
 }
 

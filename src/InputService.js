@@ -16,7 +16,7 @@ const InputService = {
         },
 
         get PointPosition() {
-            return InputService.Mouse.TruePosition.Takeaway(Vector2.new(window.innerWidth / 2, window.innerHeight / 2))
+            return InputService.Mouse.TruePosition.Takeaway(Vector2.new(Screen.Size.x / 2, Screen.Size.y / 2))
         },
 
         "Button1Down": false,

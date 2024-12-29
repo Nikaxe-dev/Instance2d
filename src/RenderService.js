@@ -18,9 +18,9 @@ const RenderService = {
         const ctx = canvas.getContext("2d")
 
         if(Screen.Camera && !drawframe.Gui) {
-            ctx.translate(((drawframe.Position.x - Screen.Camera.Position.x) * (Screen.Camera.Zoom / 100)) + window.innerWidth / 2, ((drawframe.Position.y - Screen.Camera.Position.y) * (Screen.Camera.Zoom / 100)) + window.innerHeight / 2)
+            ctx.translate(((drawframe.Position.x - Screen.Camera.Position.x) * (Screen.Camera.Zoom / 100)) + Screen.Size.x / 2, ((drawframe.Position.y - Screen.Camera.Position.y) * (Screen.Camera.Zoom / 100)) + Screen.Size.y / 2)
         } else {
-            ctx.translate(drawframe.Position.x + window.innerWidth / 2, drawframe.Position.y + window.innerHeight / 2)
+            ctx.translate(drawframe.Position.x + Screen.Size.x / 2, drawframe.Position.y + Screen.Size.y / 2)
         }
 
         ctx.rotate(drawframe.Rotation * Math.PI / 180)

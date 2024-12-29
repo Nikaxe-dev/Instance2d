@@ -98,8 +98,8 @@ const RunService = {
     },
 
     "drawframe": function(instances) {
-        canvas.width = window.innerWidth
-        canvas.height = window.innerHeight
+        canvas.width = Screen.Size.x
+        canvas.height = Screen.Size.y
 
         RenderService.Draw(DrawFrame.new(DrawData.new(Enum.DrawType.Rectangle, Game.BackgroundColor3), Vector2.new(), 0, Vector2.new(canvas.width, canvas.height), true))
 
