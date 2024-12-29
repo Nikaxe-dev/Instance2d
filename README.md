@@ -20,7 +20,9 @@ For detailed documentation, please visit the [Instance2d Wiki](https://github.co
 
 ## Example: Simple Player Controller
 
-Here's an example of a very simple player controler written using this framework:
+Here's an example of a very simple player controler written using this framework
+
+[Try it out](https://nikaxe-dev.github.io/Instance2d/examples/Basic_Player_Controller/)
 
 ```js
 // Import Instance2d's modules and set the game up.
