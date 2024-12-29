@@ -8,7 +8,7 @@ Javascript where each game-object (What I call an Instance) can have a parent, a
 
 [Documentation](https://github.com/Nikaxe-dev/Instance2d/wiki)
 
-Example of a very simple player controler written using this framework:
+## Example of a very simple player controler written using this framework:
 
 ```js
 // Import Instance2d's modules and set the game up.
