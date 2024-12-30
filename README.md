@@ -10,10 +10,21 @@ Instance2d is a JavaScript framework where each game object (referred to as an I
 
 ## Using it
 
-To include this framework in your code, simply add this:
+To include this framework in your code, simply add this to the start of your script:
 
 ```js
 import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'https://nikaxe-dev.github.io/Instance2d/Instance2d.js'
+```
+
+Just make sure that the `type` attribute of your `html` script tag is `module`
+
+Example:
+
+```html
+<script type="module">
+    import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'https://nikaxe-dev.github.io/Instance2d/Instance2d.js'
+    // blah blah blah
+</script>
 ```
 
 ## Documentation
