@@ -37,6 +37,7 @@ Here's an example of a very simple player controler written using this framework
 
 [Try it out](https://nikaxe-dev.github.io/Instance2d/examples/Basic_Player_Controller/)
 
+JavaScript:
 ```js
 // Import Instance2d's modules and set the game up.
 
@@ -117,3 +118,34 @@ player.Script = function(speed) {
 
 Game.Start(gameloop)
 ```
+
+Html:
+```html
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+            body {
+                overflow: hidden;
+                background-color: black;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <canvas id="canvas">
+            Your browser doesnt support the canvas api for some reason.
+        </canvas>
+
+        <script src="index.js" type="module"></script>
+    </body>
+</html>
+```
+
+The html will be pretty much the same for each example, so if it isnt shown, keep that in mind.
