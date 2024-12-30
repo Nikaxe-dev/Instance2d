@@ -41,7 +41,7 @@ JavaScript:
 ```js
 // Import Instance2d's modules and set the game up.
 
-import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'https://nikaxe-dev.github.io/Instance2d/Instance2d.js'
+import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from '/Instance2d/Instance2d.js'
 
 // Set the games properties.
 
@@ -50,8 +50,12 @@ Game.BackgroundColor3 = Color3.new(0, 0, 0)
 
 // Target Frame Rate
 RunService.TargetFrameRate = 120
+
 // Do Disable Right Click Menu
 Game.DoDisableRightClickMenu = false
+
+// Set the screens size (defualts to the window size if not set)
+Screen.Size = Vector2.new(window.innerWidth, window.innerHeight)
 
 // Game Speed
 RunService.GameSpeed = 1
@@ -59,6 +63,9 @@ RunService.GameSpeed = 1
 // Initialize the game with the canvas and the gameloop function.
 
 function gameloop() {
+    // Set the screens size (optional)
+    Screen.Size = Vector2.new(window.innerWidth, window.innerHeight)
+
     RunService.frame()
 }
 
@@ -74,7 +81,7 @@ let player = Instance.Sprite2d.new({
     RotVelocity: 0, // The rotational velocity of the object.
     Size: Vector2.new(50, 50), // The size of the object.
     Velocity: Vector2.new(), // The velocity of the object.
-    DrawData: DrawData.new(Enum.DrawType.PixelImage, "/images/player.png"), // The draw data of the object. Find out more about DrawData in the documentation.
+    DrawData: DrawData.new(Enum.DrawType.PixelImage, "./player.png"), // The draw data of the object. Find out more about DrawData in the documentation.
     ZIndex: 10, // The ZIndex of the object. The higher the ZIndex the more in front the object will be.
     CollisionType: Enum.CollisionType.Rectangle, // The collision type of the object. Find out more about CollisionType in the documentation.
     Parent: Screen // The parent of the object. This is what the object is inside of. In this case it is the Screen.
