@@ -9,6 +9,8 @@ You can access instances easily just by seperating their id's by dots. Eg: playe
 
 All of the libaries are split into different instances, called services with unique properties and functions.
 
+You can find all of these services under the `Game` instance, or import them as a seperate variable.
+
 [Website](https://nikaxe.is-a.dev/Instance2d/)
 
 ## Using it
