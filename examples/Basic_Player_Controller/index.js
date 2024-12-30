@@ -13,7 +13,7 @@ RunService.TargetFrameRate = 120
 // Do Disable Right Click Menu
 Game.DoDisableRightClickMenu = false
 
-// Set the screens size (defualts to the window size)
+// Set the screens size (defualts to the window size if not set)
 Screen.Size = Vector2.new(window.innerWidth, window.innerHeight)
 
 // Game Speed

@@ -224,7 +224,8 @@ input {
 }
 
 #instance2d-title-hr {
-    width: 850px;
+    transition: all .25s ease-in-out;
+    width: 65%;
     margin-top: 15px;
     height: 2.5px;
     background-color: white;
