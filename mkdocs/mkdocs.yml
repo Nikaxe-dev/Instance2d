@@ -1,9 +1,19 @@
 site_name: Instance2d
+site_dir: D:/projects/.html_.js/Instance2d/documentation
 
 nav:
   - README: index.md
   - Home: Home.md
   - Examples: Examples.md
+  - Data/Enum: Data.md
+  - Services:
+    - Screen: Screen.md
+    - Instance: Instance.md
+    - RunService: RunService.md
+    - InputService: InputService.md
+    - RenderService: RenderService.md
 
 theme:
-  name: readthedocs
+  name: mkdocs
+  color_mode: dark
+  user_color_mode_toggle: true

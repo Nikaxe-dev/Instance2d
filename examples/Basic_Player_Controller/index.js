@@ -1,6 +1,6 @@
 // Import Instance2d's modules and set the game up.
 
-import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'instance2d.js.org/Instance2d.js'
+import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'https://instance2d.js.org/Instance2d.js'
 
 // Set the games properties.
 
