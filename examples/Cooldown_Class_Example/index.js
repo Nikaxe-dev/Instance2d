@@ -1,6 +1,6 @@
 // Import Instance2d's and set the games properties.
 
-import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'https://nikaxe-dev.github.io/Instance2d/Instance2d.js'
+import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'instance2d.js.org/Instance2d.js'
 Game.BackgroundColor3 = Color3.new(0, 0, 0)
 RunService.TargetFrameRate = 60
 RunService.GameSpeed = 1

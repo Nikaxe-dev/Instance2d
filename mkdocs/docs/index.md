@@ -1,6 +1,52 @@
+![image](https://instance2d.js.org/images/Text_And_Icon.svg)
+
+---
+
+## Introduction
+
+Instance2d is a JavaScript framework where each game object (referred to as an Instance) can have a parent and a child, allowing you to organize your games in various ways.
+You can access instances easily just by seperating their id's by dots. Eg: player.gun.cooldown.
+
+All of the modules are split into different instances, called services with unique properties and functions.
+
+You can find all of these services under the `Game` instance, or import them as a seperate variable.
+
+[Website](https://instance2d.js.org)
+
+## Using it
+
+To include this framework in your code, simply add this to the start of your script:
+
+```js
+import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'https://nikaxe-dev.github.io/Instance2d/Instance2d.js'
+```
+
+Just make sure that the `type` attribute of your `html` script tag is `module`
+
+Example:
+
+```html
+<script type="module">
+    import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'https://nikaxe-dev.github.io/Instance2d/Instance2d.js'
+    // blah blah blah
+</script>
+```
+
+## Documentation
+
+For detailed documentation, please visit the [Instance2d Wiki](https://github.com/Nikaxe-dev/Instance2d/wiki).
+
+## Example: Simple Player Controller
+
+Here's an example of a very simple player controler written using this framework
+
+[Try it out](https://nikaxe-dev.github.io/Instance2d/examples/Basic_Player_Controller/)
+
+JavaScript:
+```js
 // Import Instance2d's modules and set the game up.
 
-import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'instance2d.js.org/Instance2d.js'
+import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from '/Instance2d/Instance2d.js'
 
 // Set the games properties.
 
@@ -83,3 +129,35 @@ player.Script = function(speed) {
 // Start the game.
 
 Game.Start(gameloop)
+```
+
+Html:
+```html
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+            body {
+                overflow: hidden;
+                background-color: black;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <canvas id="canvas">
+            Your browser doesnt support the canvas api for some reason.
+        </canvas>
+
+        <script src="index.js" type="module"></script>
+    </body>
+</html>
+```
+
+The html will be pretty much the same for each example, so if it isnt shown, keep that in mind.

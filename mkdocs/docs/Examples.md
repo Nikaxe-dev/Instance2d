@@ -1,6 +1,13 @@
+- ## Simple Player Controller
+
+Example of a very simple player controler written using this framework
+
+[Try it out](https://nikaxe-dev.github.io/Instance2d/examples/Basic_Player_Controller/)
+
+```js
 // Import Instance2d's modules and set the game up.
 
-import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'instance2d.js.org/Instance2d.js'
+import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from '/Instance2d/Instance2d.js'
 
 // Set the games properties.
 
@@ -22,7 +29,7 @@ RunService.GameSpeed = 1
 // Initialize the game with the canvas and the gameloop function.
 
 function gameloop() {
-    // Set the screens size (optional)
+    // Set the screens size (optional but recommended)
     Screen.Size = Vector2.new(window.innerWidth, window.innerHeight)
 
     RunService.frame()
@@ -83,3 +90,55 @@ player.Script = function(speed) {
 // Start the game.
 
 Game.Start(gameloop)
+```
+
+- ## Cooldown Example:
+
+Example of the `cooldown` class.
+
+[Try it out](https://nikaxe-dev.github.io/Instance2d/examples/Cooldown_Class_Example/)
+
+```js
+// Import Instance2d's and set the games properties.
+
+import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'https://nikaxe-dev.github.io/Instance2d/Instance2d.js'
+Game.BackgroundColor3 = Color3.new(0, 0, 0)
+RunService.TargetFrameRate = 60
+RunService.GameSpeed = 1
+Screen.Size = Vector2.new(window.innerWidth, window.innerHeight)
+
+// Initialize the game.
+
+Game.Init(document.getElementById("canvas"))
+
+// Create a cooldown that runs "cooldown ended" every second.
+
+let cooldown = Instance.Cooldown.new(
+    {
+        Id: "testcooldown", // Id
+        Type: "cooldown", // Type
+        Time: 1, // Time it takes to end (in seconds)
+        Parent: Nowhere, // Parent
+        Loop: true, // Controls whether the cooldown should loop or not
+
+        // Function that runs when the cooldown ends.
+        OnEnd: function() {
+            console.log("Cooldown ended")
+        }
+    }
+)
+
+// Start the cooldown.
+cooldown.Play()
+
+function gameloop() {
+    // Set the screens size (optional)
+    Screen.Size = Vector2.new(window.innerWidth, window.innerHeight)
+
+    RunService.frame()
+}
+
+// Start the game.
+
+Game.Start(gameloop)
+```

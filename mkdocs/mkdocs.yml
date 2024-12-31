@@ -1,0 +1,9 @@
+site_name: Instance2d
+
+nav:
+  - README: index.md
+  - Home: Home.md
+  - Examples: Examples.md
+
+theme:
+  name: readthedocs
