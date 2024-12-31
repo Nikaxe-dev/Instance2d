@@ -11,7 +11,7 @@ All of the modules are split into different instances, called services with uniq
 
 You can find all of these services under the `Game` instance, or import them as a seperate variable.
 
-[Website](https://nikaxe.is-a.dev/Instance2d/)
+[Website](instance2d.js.org)
 
 ## Using it
 
