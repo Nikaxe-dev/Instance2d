@@ -1,3 +1,5 @@
+# 
+
 - ## Simple Player Controller
 
 Example of a very simple player controler written using this framework
@@ -92,9 +94,11 @@ player.Script = function(speed) {
 Game.Start(gameloop)
 ```
 
-- ## Cooldown Example:
+- ## Cooldown Example
 
 Example of the `cooldown` class.
+
+Open up the console to see the output. (CTRL + SHIFT + I)
 
 [Try it out](https://nikaxe-dev.github.io/Instance2d/examples/Cooldown_Class_Example/)
 
