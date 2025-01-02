@@ -1,9 +1,8 @@
 ![image](/images/Text_And_Icon.svg)
 
+<p align="center"><a href="https://instance2d.js.org">Website</a> | <a href="https://instance2d.js.org/documentation">Documentation</a></p>
+
 ---
-
-
-[Website](https://instance2d.js.org)|[Instance2d Wiki](https://insance2d.js.org/documentation)
 
 ## Introduction
 
