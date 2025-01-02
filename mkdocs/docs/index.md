@@ -34,7 +34,7 @@ Example:
 
 ## Documentation
 
-For detailed documentation, please visit the [Instance2d Wiki](https://insance2d.js.org/documentation).
+For detailed documentation, please visit the [Instance2d Wiki](https://instance2d.js.org/documentation).
 
 ## Example: Simple Player Controller
 
