@@ -1020,8 +1020,8 @@ Unlike JavaScript with the DOM and other ways of changing the projects organizat
 <h3 id="2d">2d</h3>
 <hr />
 <h3 id="instance2d">Instance2d</h3>
-<p><a href="#Instance">Instance</a> with a <code>position</code>, <code>rotation</code>, <code>rotationvelocity</code>, <code>velocity</code>, and <code>size</code>.</p>
-<p>Inherits: <a href="#Instance">Instance</a></p>
+<p><code>Instance</code> with a <code>position</code>, <code>rotation</code>, <code>rotationvelocity</code>, <code>velocity</code>, and <code>size</code>.</p>
+<p>Inherits: <code>Instance</code></p>
 <p><code>.new({id, type, position: Vector2.new(), rotation: 0, rotationvelocity: 0, velocity: Vector2.new(), size: Vector2.new(50, 50), collisiontype: Enum.CollisionType.Rectangle, parent: Nowhere})</code></p>
 <div class="language-js highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nx">Id</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
@@ -1035,11 +1035,11 @@ Unlike JavaScript with the DOM and other ways of changing the projects organizat
 </span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="nx">CollisionType</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">Enum</span><span class="p">.</span><span class="nx">CollisionType</span><span class="p">]</span>
 </span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><code>Instance2d.Colliding(Instance2d | Sprite2d)</code> =&gt; Returns <code>true</code> if the <code>Instance2d</code> is colliding with the <code>Instance2d</code> | <code>Sprite2d</code></p>
-<p><code>Instance2d.GetCollison()</code> =&gt; Returns every instance touching itself.</p>
+<p>(To be added) <code>Instance2d.Colliding(instance = Instance2d | Sprite2d)</code> =&gt; Returns <code>true</code> if the <code>Instance2d</code> is colliding with the <code>Instance2d</code> | <code>Sprite2d</code></p>
+<p>(To be added) <code>Instance2d.GetCollison()</code> =&gt; Returns every instance touching itself.</p>
 <h3 id="sprite2d">Sprite2d</h3>
-<p><a href="#Instance2d">Instance2d</a> that is drawn to the screen dependent on its property <code>DrawData</code>.</p>
-<p>Inherits: <a href="#Instance2d">Instance2d</a></p>
+<p><code>Instance2d</code> that is drawn to the screen dependent on its property <code>DrawData</code>.</p>
+<p>Inherits: <code>Instance2d</code></p>
 <p><code>.new({id, type, position: Vector2.new(), rotation: 0, rotationvelocity: 0, velocity: Vector2.new(), size: Vector2.new(50, 50), drawdata: DrawData.new(), zindex: 0, collisiontype: Enum.CollisionType.Rectangle, parent = Nowhere})</code></p>
 <div class="language-js highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nx">Class</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Sprite2d&quot;</span><span class="p">,</span>
@@ -1059,7 +1059,7 @@ Unlike JavaScript with the DOM and other ways of changing the projects organizat
 </span></code></pre></div>
 <h3 id="camera2d">Camera2d</h3>
 <p>A camera. Useless on its own, set <code>Screen.Camera</code> to one of these instances and your game has a camera.</p>
-<p>Inherits: <a href="#Instance2d">Instance2d</a></p>
+<p>Inherits: <code>Instance2d</code></p>
 <p><code>.new({id, type, position: Vector2.new(), rotation: 0, rotationvelocity: 0, velocity: Vector2.new(), zoom: 100, parent: Nowhere)}</code></p>
 <div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nx">Id</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
@@ -1077,7 +1077,7 @@ Unlike JavaScript with the DOM and other ways of changing the projects organizat
 <hr />
 <h3 id="cooldown">Cooldown</h3>
 <p>Use this to add time into your game. Useful for weapon cooldowns, debree deletion, ect.</p>
-<p>Inherits: <a href="#Instance">Instance</a></p>
+<p>Inherits: <code>Instance</code></p>
 <p><code>.new({id, type, time: 1, loop: false, onend: function() {}, parent: Nowhere)}</code></p>
 <div class="language-js highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nx">Id</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
@@ -1116,7 +1116,7 @@ Every class of Instance inherits from this class.</p>
 <p><code>Instance.Destroy()</code> =&gt; Removes the instance and it's descendants completely from the game.</p>
 <h3 id="service">Service</h3>
 <p>The class every service uses. Not really useful to anything you'd do in a game. It's the same as an Instance, just with the Parent property locked.</p>
-<p>Inherits: <a href="#Instance">Instance</a></p>
+<p>Inherits: <code>Instance</code></p>
 <p><code>.new({id, type, parent: Nowhere})</code></p>
 <div class="language-js highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nx">Id</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>

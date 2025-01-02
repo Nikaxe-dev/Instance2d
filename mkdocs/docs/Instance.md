@@ -60,9 +60,9 @@ Unlike JavaScript with the DOM and other ways of changing the projects organizat
 ---
 
 ### Instance2d
-[Instance](#Instance) with a `position`, `rotation`, `rotationvelocity`, `velocity`, and `size`.
+`Instance` with a `position`, `rotation`, `rotationvelocity`, `velocity`, and `size`.
 
-Inherits: [Instance](#Instance)
+Inherits: `Instance`
 
 `.new({id, type, position: Vector2.new(), rotation: 0, rotationvelocity: 0, velocity: Vector2.new(), size: Vector2.new(50, 50), collisiontype: Enum.CollisionType.Rectangle, parent: Nowhere})`
 
@@ -80,14 +80,14 @@ CollisionType: [Enum.CollisionType]
 }
 ```
 
-`Instance2d.Colliding(Instance2d | Sprite2d)` => Returns `true` if the `Instance2d` is colliding with the `Instance2d` | `Sprite2d`
+(To be added) `Instance2d.Colliding(instance = Instance2d | Sprite2d)` => Returns `true` if the `Instance2d` is colliding with the `Instance2d` | `Sprite2d`
 
-`Instance2d.GetCollison()` => Returns every instance touching itself.
+(To be added) `Instance2d.GetCollison()` => Returns every instance touching itself.
 
 ### Sprite2d
-[Instance2d](#Instance2d) that is drawn to the screen dependent on its property `DrawData`.
+`Instance2d` that is drawn to the screen dependent on its property `DrawData`.
 
-Inherits: [Instance2d](#Instance2d)
+Inherits: `Instance2d`
 
 `.new({id, type, position: Vector2.new(), rotation: 0, rotationvelocity: 0, velocity: Vector2.new(), size: Vector2.new(50, 50), drawdata: DrawData.new(), zindex: 0, collisiontype: Enum.CollisionType.Rectangle, parent = Nowhere})`
 
@@ -112,7 +112,7 @@ CollisionType: [Enum.CollisionType]
 ### Camera2d
 A camera. Useless on its own, set `Screen.Camera` to one of these instances and your game has a camera.
 
-Inherits: [Instance2d](#Instance2d)
+Inherits: `Instance2d`
 
 `.new({id, type, position: Vector2.new(), rotation: 0, rotationvelocity: 0, velocity: Vector2.new(), zoom: 100, parent: Nowhere)}`
 
@@ -137,7 +137,7 @@ Zoom: Number%,
 ### Cooldown
 Use this to add time into your game. Useful for weapon cooldowns, debree deletion, ect.
 
-Inherits: [Instance](#Instance)
+Inherits: `Instance`
 
 `.new({id, type, time: 1, loop: false, onend: function() {}, parent: Nowhere)}`
 
@@ -195,7 +195,7 @@ Parent: [Instance],
 ### Service
 The class every service uses. Not really useful to anything you'd do in a game. It's the same as an Instance, just with the Parent property locked.
 
-Inherits: [Instance](#Instance)
+Inherits: `Instance`
 
 `.new({id, type, parent: Nowhere})`
 
