@@ -2,6 +2,9 @@
 
 ---
 
+
+[Website](https://instance2d.js.org)|[Instance2d Wiki](https://insance2d.js.org/documentation)
+
 ## Introduction
 
 Instance2d is a JavaScript framework where each game object (referred to as an Instance) can have a parent and a child, allowing you to organize your games in various ways.
@@ -9,9 +12,7 @@ You can access instances easily just by seperating their id's by dots. Eg: playe
 
 All of the modules are split into different instances, called services with unique properties and functions.
 
-You can find all of these services under the `Game` instance, or import them as a seperate variable.
-
-[Website](https://instance2d.js.org)
+You can find all of these services under the `Game` instance, or import them as a seperate variables.
 
 ## Using it
 
@@ -34,7 +35,7 @@ Example:
 
 ## Documentation
 
-For detailed documentation, please visit the [Instance2d Wiki](https://github.com/Nikaxe-dev/Instance2d/wiki).
+For detailed documentation, please visit the [Instance2d Wiki](https://insance2d.js.org/documentation).
 
 ## Example: Simple Player Controller
 
