@@ -1,14 +1,16 @@
+## About
+
 `InputService` is a service that has many properties, all getting updated once the game starts. It is used for getting player input.
 
-# Functions
+## Functions
 * `InputService.KeyDown(key)` => Returns if a key is down.
 * `InputService.BeginListen()` => Begins listening for inputs and updating the services properties. (Automatically executed on import)
 
-# Properties
-## `Keyboard`
+## Properties
+### `Keyboard`
 * `Inputs`: Contains all keyboard inputs. When a key is down, its name will be `true` in here.
 
-## `Mouse`
+### `Mouse`
 * `Position`: The position of the mouse on the screen.
 * `TruePosition`: The position of the mouse in the game. (`Mouse.Position` + `Screen.Camera.Position`)
 * `PointPosition`: The position of the mouse in the game, but it can be pointed to properly. (`Mouse.TruePosition` - `Vector2.new(window.innerWidth / 2, window.innerHeight / 2)`)

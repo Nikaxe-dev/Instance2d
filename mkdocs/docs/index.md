@@ -1,3 +1,5 @@
+# 
+
 ![image](https://instance2d.js.org/images/Text_And_Icon.svg)
 
 ---
@@ -34,7 +36,7 @@ Example:
 
 ## Documentation
 
-For detailed documentation, please visit the [Instance2d Wiki](https://github.com/Nikaxe-dev/Instance2d/wiki).
+For detailed documentation, please visit the [Instance2d Wiki](https://instance2d.js.org/documentation).
 
 ## Example: Simple Player Controller
 

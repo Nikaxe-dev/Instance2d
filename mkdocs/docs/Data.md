@@ -1,8 +1,8 @@
 There are many different datatypes in Instance2d, and this wikipage is for classifying them.
 Most of them can be instanced with the function `.new()`
 
-# Enum
-### DrawType
+## Enum
+* ### DrawType
 Controls the way things are drawn in `RenderService.Draw(DrawFrame)`
 
 - `Rectangle` - Draws it as a rectangle,
@@ -10,15 +10,15 @@ Controls the way things are drawn in `RenderService.Draw(DrawFrame)`
 - `Image` - Draws it as an image,
 - `Circle` - Draws it as a circle,
 
-### CollisionType (Collision is to be added!)
+* ### CollisionType (Collision is to be added!)
 Controls the way collision is detected for collidable objects.
 
 - `Rectangle` - Uses the `instance.CollisionShape` as a rectangle (use `Vector2` for the `CollisionShape`),
 - `Defined` - Uses the `instance.Size` parameter.,
 - `Custom` - (To Be Added) Uses the `instance.CollisionShape` as a list of points. (May become a new datatype.)
 
-# DataTypes
-## Vector2
+## DataTypes
+* ### Vector2
 Vector2 is a datatype for a `position`, `size`, or `velocity` on the screen.
 
 `Vector2.new(x = 0, y = x)`
@@ -57,7 +57,7 @@ return angle
 
 `Vector2.PointTowards(towards = Vector2.new())` => returns the direction the `Vector2` would point to `towards`.
 
-## Color3
+* ### Color3
 Returns a new `RGB` color.
 
 `Color3.new(r = 0, g = 0, b = 0)`
@@ -70,7 +70,7 @@ Returns a new `RGB` color.
 }
 ```
 
-## DrawData
+### DrawData
 The data used by `Sprite2d`'s that includes the type, and the `TextureURL` | `Color3`.
 
 `DrawData.new(DrawType = Enum.DrawType.Rectangle, Type = "placeholder.bmp" | Color3.new())`
@@ -82,7 +82,7 @@ The data used by `Sprite2d`'s that includes the type, and the `TextureURL` | `Co
 }
 ```
 
-## DrawFrame
+* ### DrawFrame
 The data used by `RenderService.Draw()` to draw something on a screen.
 
 `DrawFrame.new(drawdata = DrawData.new(), position = Vector2.new(), rotation = 0, size = Vector2.new(), gui = false)`

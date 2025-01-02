@@ -4,34 +4,15 @@
 
 `import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'https://nikaxe-dev.github.io/Instance2d/Instance2d.js'`
 
-### [Examples](Examples)
+## [Examples](Examples.md)
 
-## [Game](Game)
-* [About](Game#About)
-* [Properties](Game#Properties)
+# Services:
 
-## [Instance](Instance)
-* [Creating an instance](Instance#creating-an-instance)
-* [Creating an instance of a class](Instance#the-different-classes)
-* [List of classes](Instance#List-of-classes)
-* [Classes Documentation](Instance#Classes)
-
-## [Data](Data)
-* [Enum](Data#Enum)
-* [DataTypes](Data#DataTypes)
-
-## [Screen](Screen)
-* [Properties](Screen#Properties)
-
-## [RenderService](RenderService)
-* [Functions](RenderService#Functions)
-
-## [RunService](RunService)
-* [Functions](RunService#Functions)
-* [Properties](RunService#Properties)
-
-## [InputService](InputService)
-* [Functions](InputService#Functions)
-* [Properties](InputService#Properties)
-
-## [Utils](Utils)
+* ## [Game](Game.md)
+* ## [Instance](Instance.md)
+* ## [Data](Data.md)
+* ## [Screen](Screen.md)
+* ## [RenderService](RenderService.md)
+* ## [RunService](RunService.md)
+* ## [InputService](InputService.md)
+* ## [Utils](Utils)
