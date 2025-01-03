@@ -1,0 +1,1 @@
+If you want examples of projects written using Instance2d, please visit the [examples](https://instance2d.js.org/documentation/Examples) page in the [documentation](https://instance2d.js.org/documentation).
