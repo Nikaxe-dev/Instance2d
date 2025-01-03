@@ -1,6 +1,4 @@
-# 
-
-- ## Simple Player Controller
+## Simple Player Controller
 
 Example of a very simple player controler written using this framework
 
@@ -94,7 +92,7 @@ player.Script = function(speed) {
 Game.Start(gameloop)
 ```
 
-- ## Cooldown Example
+## Cooldown Example
 
 Example of the `cooldown` class.
 
