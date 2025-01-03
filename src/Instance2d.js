@@ -31,7 +31,6 @@ const Game = {
     "RunService": RunService,
     "RenderService": RenderService,
     "InputService": InputService,
-
     "Init": function(newcanvas) {
         // Initializes the game
 
@@ -78,4 +77,4 @@ const Game = {
     },
 }
 
-export {Game, Screen, Instance, RunService, RenderService, InputService, Nowhere, Color3, Vector2, DrawData, Enum, ComputeStorage}
+export {Game, Screen, Instance, RunService, RenderService, InputService, Nowhere, Color3, Vector2, DrawData, Enum, ComputeStorage, canvas}

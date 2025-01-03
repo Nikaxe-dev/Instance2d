@@ -4,7 +4,7 @@ import { Nowhere } from "./Nowhere.js"
 import { InputService } from "./InputService.js"
 
 const Instance = {
-    "new": function(data = {Id: Instance.id.new(), Type, Parent: Nowhere}) {
+    "new": function(data = {Id: Instance.id.new(), Type: "", Parent: Nowhere}) {
         let instance = {
             "Id": data.Id,
             "Type": data.Type,
@@ -47,6 +47,63 @@ const Instance = {
             instance.Class = "Instance2d"
 
             Instance.giveinstancefunctions(instance)
+
+            instance.Colliding = function(colliding = Instance.Sprite2d.new({})) {
+                if(Instance.isinstance(colliding)) {
+                    if(colliding.IsA("Instance2d")) {
+                        if(instance.IsA("Instance2d")) {
+                            return instance.Position == colliding
+                        }
+    
+                        const left = instance.Position.x - instance.Size.x / 2
+                        const right = instance.Position.x + instance.Size.x / 2
+                        const up = instance.Position.y - instance.Size.y / 2
+                        const down = instance.Position.y + instance.Size.y / 2
+    
+                        return (
+                            colliding.Position.x > left && colliding.Position.x < right &&
+                            colliding.Position.y > up && colliding.Position.y < down
+                        )
+                    }
+
+                    if(colliding.IsA("Sprite2d")) {
+                        if(instance.IsA("Instance2d")) {
+                            return colliding.Colliding(instance)
+                        }
+
+                        const instanceleft = instance.Position.x - instance.Size.x / 2
+                        const instanceright = instance.Position.x + instance.Size.x / 2
+                        const instanceup = instance.Position.y - instance.Size.y / 2
+                        const instancedown = instance.Position.y + instance.Size.y / 2
+
+                        const collidingleft = colliding.Position.x - colliding.Size.x / 2
+                        const collidingright = colliding.Position.x + colliding.Size.x / 2
+                        const collidingup = colliding.Position.y - colliding.Size.y / 2
+                        const collidingdown = colliding.Position.y + colliding.Size.y / 2
+
+                        return (
+                            instance.Position.x < collidingright &&
+                            instanceright > colliding.Position.x &&
+                            instance.Position.y > collidingup &&
+                            instanceup < colliding.Position.y
+                        )
+                    }
+                } else if(colliding.x != undefined && colliding.y != undefined) {
+                    if(instance.IsA("Instance2d")) {
+                        return instance.Position == colliding
+                    }
+
+                    const left = instance.Position.x - instance.Size.x / 2
+                    const right = instance.Position.x + instance.Size.x / 2
+                    const up = instance.Position.y - instance.Size.y / 2
+                    const down = instance.Position.y + instance.Size.y / 2
+
+                    return (
+                        colliding.x > left && colliding.x < right &&
+                        colliding.y > up && colliding.y < down
+                    )
+                }
+            }
 
             if(data.Parent == undefined) {
                 instance.Parent = Nowhere
@@ -233,7 +290,7 @@ const Instance = {
 
         instance.IsA = function(instanceclass = Instance | "Instance") {
             if(typeof instanceclass == "object") {
-                return (Instance[instance.Class] == instanceclass) || (instance.Class == "Instance" & instanceclass == Instance)
+                return (Instance[instance.Class] == instanceclass) || (instance.Class == "Instance" && instanceclass == Instance)
             } else if(typeof instanceclass == "string") {
                 return instance.Class == instanceclass
             }

@@ -80,7 +80,7 @@ CollisionType: [Enum.CollisionType]
 }
 ```
 
-(To be added) `Instance2d.Colliding(instance = Instance2d | Sprite2d)` => Returns `true` if the `Instance2d` is colliding with the `Instance2d` | `Sprite2d`
+(No rotation, Not fully finished) `Instance2d.Colliding(instance = Instance2d | Sprite2d | Vector2)` => Returns if the `Instance2d` is colliding with the `Instance2d` | `Sprite2d` | `Vector2`. This function is also inhereted by `Sprite2d`
 
 (To be added) `Instance2d.GetCollison()` => Returns every instance touching itself.
 

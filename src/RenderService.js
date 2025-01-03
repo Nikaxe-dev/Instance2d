@@ -1,6 +1,6 @@
 import { Convert } from "./Utils.js"
 import { ComputeStorage, Enum } from "./Data.js"
-import { Screen } from "./Instance2d.js"
+import { Screen, canvas } from "./Instance2d.js"
 
 const RenderService = {
     "LoadImage": function(directory) {

@@ -19,6 +19,10 @@ const InputService = {
             return InputService.Mouse.TruePosition.Takeaway(Vector2.new(Screen.Size.x / 2, Screen.Size.y / 2))
         },
 
+        get CenteredPosition() {
+            return InputService.Mouse.PointPosition
+        },
+
         "Button1Down": false,
         "Button2Down": false,
         "Button3Down": false,
