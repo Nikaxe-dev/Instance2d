@@ -109,6 +109,10 @@ CollisionType: [Enum.CollisionType]
 }
 ```
 
+(To be added) `Instance2d.Colliding(instance = Instance2d | Sprite2d)` => Returns `true` if the `Instance2d` is colliding with the `Instance2d` | `Sprite2d`
+
+(To be added) `Instance2d.GetCollison()` => Returns every instance touching itself.
+
 ### Camera2d
 A camera. Useless on its own, set `Screen.Camera` to one of these instances and your game has a camera.
 
