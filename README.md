@@ -27,7 +27,7 @@ Example:
 
 ```html
 <script type="module">
-    import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'https://nikaxe-dev.github.io/Instance2d/Instance2d.js'
+    import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'instance2d.js.org/Instance2d.js'
     // blah blah blah
 </script>
 ```
