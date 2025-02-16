@@ -77,4 +77,4 @@ const Game = {
     },
 }
 
-export {Game, Screen, Instance, RunService, RenderService, InputService, Nowhere, Color3, Vector2, DrawData, Enum, ComputeStorage, canvas}
+export {Game, Screen, Instance, RunService, RenderService, InputService, Nowhere, Color3, Vector2, DrawData, DrawFrame, Enum, ComputeStorage, canvas}

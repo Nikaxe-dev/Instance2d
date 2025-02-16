@@ -13,9 +13,17 @@ Controls the way things are drawn in `RenderService.Draw(DrawFrame)`
 * ### CollisionType (Collision is to be added!)
 Controls the way collision is detected for collidable objects.
 
-- `Rectangle` - Uses the `instance.CollisionShape` as a rectangle (use `Vector2` for the `CollisionShape`),
+<!-- - `Rectangle` - Uses the `instance.CollisionShape` as a rectangle (use `Vector2` for the `CollisionShape`),
 - `Defined` - Uses the `instance.Size` parameter.,
-- `Custom` - (To Be Added) Uses the `instance.CollisionShape` as a list of points. (May become a new datatype.)
+- `Custom` - (To Be Added) Uses the `instance.CollisionShape` as a list of points. (May become a new datatype.) -->
+
+These collision methods use `SAT` collision (`Seperating Axis Theorem`) for detection.
+
+- (To be implemented) `Rectangle` - Uses the `instance.CollisionShape` or the `instance.Size` parameter as a rectangle.
+- (To be implemented) `Triangle` - Uses the `instance.CollisionShape` or the `instance.Size` parameter as a triangle.
+- (To be implemented) `Circle` - Uses the `instance.CollisionShape` or the `instance.Size` parameter as a circle.
+- (To be implemented) `Pentagon` - Uses the `instance.CollisionShape` or the `instance.Size` parameter as a pentagon.
+- (To be implemented) `Hexagon` - Uses the `instance.CollisionShape` or the `instance.Size` parameter as a Hexagon.
 
 ## DataTypes
 * ### Vector2

@@ -46,12 +46,14 @@ let sprite2dcollision1 = Instance.Sprite2d.new({
     DrawData: DrawData.new(Enum.DrawType.Rectangle, Color3.new(255, 255, 255))
 })
 
-sprite2dcollision1.Script = function() {
+sprite2dcollision1.Script = function(speed) {
     if(sprite2dcollision1.Colliding(sprite2dcollision2)) {
         sprite2dcollision1.DrawData.Type = Color3.new(0, 255, 0)
     } else {
         sprite2dcollision1.DrawData.Type = Color3.new(255, 0, 0)
     }
+
+    sprite2dcollision1.Velocity.x = -125 * speed
 }
 
 let sprite2dcollision2 = Instance.Sprite2d.new({
@@ -67,12 +69,14 @@ let sprite2dcollision2 = Instance.Sprite2d.new({
     DrawData: DrawData.new(Enum.DrawType.Rectangle, Color3.new(255, 255, 255))
 })
 
-sprite2dcollision2.Script = function() {
+sprite2dcollision2.Script = function(speed) {
     if(sprite2dcollision2.Colliding(sprite2dcollision1)) {
         sprite2dcollision2.DrawData.Type = Color3.new(0, 255, 0)
     } else {
         sprite2dcollision2.DrawData.Type = Color3.new(255, 0, 0)
     }
+
+    sprite2dcollision2.Velocity.x = 125 * speed
 }
 
 function gameloop() {

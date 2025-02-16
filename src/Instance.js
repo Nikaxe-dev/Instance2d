@@ -196,6 +196,31 @@ const Instance = {
         },
     },
 
+    "Sound": {
+        "new": function(data = {Id: Instance.id.new(), Type, Parent: Nowhere, SoundUrl, Volume: 1}) {
+            let instance = Instance.new(data)
+            instance.SoundUrl = data.SoundUrl
+            instance.Volume = data.Volume
+
+            instance.Class = "Sound"
+
+            instance.Play = function() {
+                let sound = new Sound(instance.SoundUrl)
+                sound.Play()
+            }
+
+            Instance.giveinstancefunctions(instance)
+
+            if(data.Parent == undefined) {
+                instance.Parent = Nowhere
+            }
+
+            console.log("Instance", instance)
+
+            return instance.Parent[instance.Id]
+        }
+    },
+
     "Service": {
         "new": function(data = {Id: Instance.id.new(), Parent: Nowhere}) {
             let instance = Instance.new(data.Id, data.Id, data.Parent)
