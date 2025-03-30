@@ -42,6 +42,44 @@ function gameloop() {
 
 Game.Init(document.getElementById("canvas"))
 
+function enemy() {
+    let instance = Instance.Sprite2d.new({
+        Id: "Enemy.." + Math.random() * 1000,
+        Type: "Enemy",
+        Position: Vector2.new(player.Position.x + Math.random() * 2000 - 1000, player.Position.y + Math.random() * 2000 - 1000),
+        Rotation: 90,
+        RotVelocity: 0,
+        Size: Vector2.new(75, 75),
+        Velocity: Vector2.new(),
+        DrawData: DrawData.new(Enum.DrawType.PixelImage, "./Icon.svg"),
+        ZIndex: 9,
+        CollisionType: Enum.CollisionType.Rectangle,
+        Parent: Nowhere
+    })
+
+    instance.Speed = 1000
+    instance.MultiSpeed = 1
+
+    instance.Script = function(speed) {
+        let velocity = Vector2.new(player.Position.x - instance.Position.x, player.Position.y - instance.Position.y)
+        velocity = vector2unit(velocity, instance.Speed)
+        velocity = Vector2.new(velocity.x * speed * instance.MultiSpeed, velocity.y * speed * instance.MultiSpeed)
+        instance.MultiSpeed += (Math.random() * 0.05) - 0.025
+        instance.MultiSpeed = Math.min(Math.max(instance.MultiSpeed, 0.25), 1.75)
+
+        instance.Velocity = Vector2.new((velocity.x - instance.Velocity.x) / 2, (velocity.y - instance.Velocity.y) / 2)
+    }
+
+    return instance
+}
+
+function spawnenemies(amount) {
+    for(let i = 0; i < amount; i++) {
+        let instance = enemy()
+        instance.Parent = Screen
+    }
+}
+
 // Create the player.
 
 let player = Instance.Sprite2d.new({
@@ -143,6 +181,8 @@ let shootcooldown = Instance.Cooldown.new({
         }
     },
 })
+
+spawnenemies(10)
 
 shootcooldown.Play()
 
