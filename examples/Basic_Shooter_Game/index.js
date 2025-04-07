@@ -1,6 +1,6 @@
 // Import Instance2d's modules and set the game up.
 
-import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData} from 'https://instance2d.js.org/Instance2d.js'
+import {Game, Instance, InputService, Screen, RunService, Nowhere, Color3, Vector2, Enum, DrawData, Utils} from '/src/Instance2d.js'
 
 // Set the games properties.
 
@@ -57,8 +57,19 @@ function enemy() {
         Parent: Nowhere
     })
 
-    instance.Speed = 1000
+    instance.Speed = 500
     instance.MultiSpeed = 1
+
+    instance.Collision = function(speed) {
+        let colliding = instance.GetAllCollidingInstances()
+
+        for(const [key, value] of Object.entries(colliding)) {
+            if(value.Type == "Bullet") {
+                let force = Vector2.new((-value.Position.x - instance.Position.x) / 5, (-value.Position.y - instance.Position.y) / 5)
+                instance.ApplyForce(force)
+            }
+        }
+    }
 
     instance.Script = function(speed) {
         let velocity = Vector2.new(player.Position.x - instance.Position.x, player.Position.y - instance.Position.y)
@@ -67,7 +78,9 @@ function enemy() {
         instance.MultiSpeed += (Math.random() * 0.05) - 0.025
         instance.MultiSpeed = Math.min(Math.max(instance.MultiSpeed, 0.25), 1.75)
 
-        instance.Velocity = Vector2.new((velocity.x - instance.Velocity.x) / 2, (velocity.y - instance.Velocity.y) / 2)
+        instance.ApplyForce(Vector2.new((velocity.x - instance.Velocity.x) / 2, (velocity.y - instance.Velocity.y) / 2))
+
+        instance.Collision()
     }
 
     return instance
@@ -133,8 +146,6 @@ player.Shoot = function(speed) {
 }
 
 player.Script = function(speed) {
-    console.log(InputService.Mouse.Button1Down)
-
     // Check for player input and move the player accordingly.
     // Make sure to times this by the speed parameter (deltatime * RunService.GameSpeed)
 
@@ -182,7 +193,7 @@ let shootcooldown = Instance.Cooldown.new({
     },
 })
 
-spawnenemies(10)
+spawnenemies(5)
 
 shootcooldown.Play()
 

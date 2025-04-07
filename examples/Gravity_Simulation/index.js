@@ -25,7 +25,7 @@ let camera = Instance.Camera2d.new({
     Parent: Screen
 })
 
-for(let i = 0; i < 2; i++) {
+for(let i = 0; i < 5; i++) {
     let object = Instance.Sprite2d.new({
         Id: Math.random(),
         Type: "point",

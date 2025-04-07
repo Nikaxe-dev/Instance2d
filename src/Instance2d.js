@@ -12,7 +12,7 @@ loadedimages.id = "loadedimages"
 document.body.appendChild(loadedimages)
 
 import { Enum, Vector2, Color3, DrawData, DrawFrame, ComputeStorage } from "./Data.js"
-import { Convert } from "./Utils.js"
+import * as Utils from "./Utils.js"
 
 import { Nowhere } from "./Nowhere.js"
 import { Instance } from "./Instance.js"
@@ -77,4 +77,4 @@ const Game = {
     },
 }
 
-export {Game, Screen, Instance, RunService, RenderService, InputService, Nowhere, Color3, Vector2, DrawData, DrawFrame, Enum, ComputeStorage, canvas}
+export {Game, Screen, Instance, RunService, RenderService, InputService, Nowhere, Color3, Vector2, DrawData, DrawFrame, Enum, ComputeStorage, Utils, canvas}

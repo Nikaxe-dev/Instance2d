@@ -2,10 +2,12 @@ import { DrawData, Enum, Vector2 } from "./Data.js"
 
 import { Nowhere } from "./Nowhere.js"
 import { InputService } from "./InputService.js"
+import { Utils } from "./Instance2d.js"
+import { Screen } from "./Instance2d.js"
 
 const Instance = {
     "new": function(data = {Id: Instance.id.new(), Type: "", Parent: Nowhere}) {
-        let instance = {
+        const instance = {
             "Id": data.Id,
             "Type": data.Type,
             "Class": "Instance",
@@ -25,7 +27,7 @@ const Instance = {
     
     "Instance2d": {
         "new": function(data = {Id: Instance.id.new(), Type, Parent: Nowhere, Position: Vector2.new(), Rotation: 0, RotVelocity: 0, Velocity: Vector2.new(), Size: Vector2.new(), CollisionType: Enum.CollisionType.Rectangle}) {
-            // let instance = {
+            // const instance = {
             //     "Id": id,
             //     "Type": type,
             //     "Class": "Sprite2d",
@@ -37,7 +39,7 @@ const Instance = {
             //     "ParentValue": parent,
             // }
 
-            let instance = Instance.new(data)
+            const instance = Instance.new(data)
             instance.Position = data.Position
             instance.Rotation = data.Rotation
             instance.RotVelocity = data.RotVelocity
@@ -47,6 +49,10 @@ const Instance = {
             instance.Class = "Instance2d"
 
             Instance.giveinstancefunctions(instance)
+
+            instance.ApplyForce = function(force = Vector2.new()) {
+                instance.Velocity = Vector2.new(instance.Velocity.x + force.x, instance.Velocity.y + force.y)
+            }
 
             instance.Colliding = function(colliding = Instance.Sprite2d.new({})) {
                 if(Instance.isinstance(colliding)) {
@@ -105,6 +111,19 @@ const Instance = {
                 }
             }
 
+            instance.GetAllCollidingInstances = function() {
+                const checks = Utils.Table.Merge(Screen.GetAllOfClass("Sprite2d"), Screen.GetAllOfClass("Instance2d"))
+                const colliding = {}
+
+                for (const [key, value] of Object.entries(checks)) {
+                    if(instance.Colliding(value)) {
+                        colliding[key] = value
+                    }
+                }
+
+                return colliding
+            }
+
             if(data.Parent == undefined) {
                 instance.Parent = Nowhere
             }
@@ -117,7 +136,7 @@ const Instance = {
 
     "Sprite2d": {
         "new": function(data = {Id: Instance.id.new(), Type, Parent: Nowhere, Position: Vector2.new(), Rotation: 0, RotVelocity: 0, Velocity: Vector2.new(), Size: Vector2.new(), CollisionType: Enum.CollisionType.Rectangle, DrawData: DrawData.new(), ZIndex: 0}) {
-            let instance = Instance.Instance2d.new(data)
+            const instance = Instance.Instance2d.new(data)
             instance.DrawData = data.DrawData
             instance.ZIndex = data.ZIndex
 
@@ -137,7 +156,7 @@ const Instance = {
 
     "Cooldown": {
         "new": function(data = {Id: Instance.id.new(), Type, Parent: Nowhere, Time: 1, Loop: false, OnEnd: function() {}}) {
-            let instance = Instance.new(data)
+            const instance = Instance.new(data)
             instance.MaxTime = data.Time
             instance.Time = data.Time
             instance.Loop = data.Loop
@@ -168,7 +187,7 @@ const Instance = {
 
     "Camera2d": {
         "new": function(data = {Id: Instance.id.new(), Type, Parent: Nowhere, Position: Vector2.new(), Rotation: 0, RotVelocity: 0, Velocity: Vector2.new(), Zoom: 100}) {
-            let instance = Instance.Instance2d.new(data)
+            const instance = Instance.Instance2d.new(data)
             instance.Position = data.Position
             instance.Zoom = data.Zoom
             
@@ -198,7 +217,7 @@ const Instance = {
 
     "Sound": {
         "new": function(data = {Id: Instance.id.new(), Type, Parent: Nowhere, SoundUrl, Volume: 1}) {
-            let instance = Instance.new(data)
+            const instance = Instance.new(data)
             instance.SoundUrl = data.SoundUrl
             instance.Volume = data.Volume
 
@@ -223,7 +242,7 @@ const Instance = {
 
     "Service": {
         "new": function(data = {Id: Instance.id.new(), Parent: Nowhere}) {
-            let instance = Instance.new(data.Id, data.Id, data.Parent)
+            const instance = Instance.new(data.Id, data.Id, data.Parent)
 
             Instance.giveinstancefunctions(instance)
 
@@ -237,14 +256,14 @@ const Instance = {
         },
 
         "turn": function(original, id, parent) {
-            let instance = Instance.Service.new(id, parent)
+            const instance = Instance.Service.new(id, parent)
 
             return {...instance, ...original}
         },
     },
 
     "turn": function(original, id, type, position, size, drawdata, parent) {
-        let instance = Instance.new(id, type, position, size, drawdata, parent)
+        const instance = Instance.new(id, type, position, size, drawdata, parent)
         
         return {...instance, ...original}
     },
@@ -311,6 +330,19 @@ const Instance = {
             }
 
             return descendents
+        }
+
+        instance.GetAllOfClass = function(name) {
+            let descendents = instance.GetDescendents()
+            let elements = {}
+
+            for (const [key, element] of Object.entries(descendents)) {
+                if(element.IsA(name)) {
+                    elements[key] = element
+                }
+            }
+
+            return elements
         }
 
         instance.IsA = function(instanceclass = Instance | "Instance") {
