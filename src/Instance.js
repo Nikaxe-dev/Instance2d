@@ -332,6 +332,18 @@ const Instance = {
             return descendents
         }
 
+        instance.GetAncestors = function() {
+            let ancestors = {}
+            let current = instance
+
+            while(current.Parent != null) {
+                current = current.Parent
+                ancestors[current.Id] = current
+            }
+
+            return ancestors
+        }
+
         instance.GetAllOfClass = function(name) {
             let descendents = instance.GetDescendents()
             let elements = {}
@@ -343,6 +355,41 @@ const Instance = {
             }
 
             return elements
+        }
+
+        instance.GetInstancesOfClass = instance.GetAllOfClass
+
+        instance.GetInstancesOfType = function(name) {
+            let descendents = instance.GetDescendents()
+            let elements = {}
+
+            for (const [key, element] of Object.entries(descendents)) {
+                if(element.Type == name) {
+                    elements[key] = element
+                }
+            }
+
+            return elements
+        }
+
+        instance.FindFirstChild = function(id) {
+            let descendents = instance.GetChildren()
+
+            for (const [key, inst] of Object.entries(descendents)) {
+                if(element.Id == id) {
+                    return inst
+                }
+            }
+        }
+
+        instance.FindFirstDescendent = function(id) {
+            let descendents = instance.GetDescendents()
+
+            for (const [key, inst] of Object.entries(descendents)) {
+                if(element.Id == id) {
+                    return inst
+                }
+            }
         }
 
         instance.IsA = function(instanceclass = Instance | "Instance") {

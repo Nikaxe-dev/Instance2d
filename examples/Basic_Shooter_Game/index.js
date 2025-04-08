@@ -58,6 +58,7 @@ function enemy() {
     })
 
     instance.Speed = 500
+    instance.Health = 10
     instance.MultiSpeed = 1
 
     instance.Collision = function(speed) {
@@ -67,6 +68,8 @@ function enemy() {
             if(value.Type == "Bullet") {
                 let force = Vector2.new((-value.Position.x - instance.Position.x) / 5, (-value.Position.y - instance.Position.y) / 5)
                 instance.ApplyForce(force)
+                instance.Health -= 1
+                value.Destroy()
             }
         }
     }
@@ -81,6 +84,10 @@ function enemy() {
         instance.ApplyForce(Vector2.new((velocity.x - instance.Velocity.x) / 2, (velocity.y - instance.Velocity.y) / 2))
 
         instance.Collision()
+
+        if(instance.Health < 1) {
+            instance.Destroy()
+        }
     }
 
     return instance
@@ -139,6 +146,7 @@ player.Shoot = function(speed) {
     
         OnEnd: function() {
             bullet.Destroy()
+            bulletdestruction.Destroy()
         },
     })
 
@@ -196,6 +204,9 @@ let shootcooldown = Instance.Cooldown.new({
 spawnenemies(5)
 
 shootcooldown.Play()
+
+console.log(Game)
+console.log(player.GetAncestors())
 
 // Start the game.
 
