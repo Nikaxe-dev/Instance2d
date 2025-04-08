@@ -154,6 +154,29 @@ const Instance = {
         },
     },
 
+    "Text": {
+        "new": function(data = {Id: Instance.id.new(), Type, Parent: Nowhere, Position: Vector2.new(), Rotation: 0, Size: Vector2.new(), DrawData: DrawData.new(), ZIndex: 0, Text: "Undefined", Font: "48px Serif"}) {
+            const instance = Instance.Instance2d.new(data)
+            instance.ZIndex = data.ZIndex
+            instance.DrawData = data.DrawData
+            instance.Text = data.Text
+            instance.Font = data.Font
+
+
+            instance.Class = "Text"
+
+            Instance.giveinstancefunctions(instance)
+
+            if(data.Parent == undefined) {
+                instance.Parent = Nowhere
+            }
+
+            instance.ParentValue[instance.Id] = instance
+
+            return instance.Parent[instance.Id]
+        },
+    },
+
     "Cooldown": {
         "new": function(data = {Id: Instance.id.new(), Type, Parent: Nowhere, Time: 1, Loop: false, OnEnd: function() {}}) {
             const instance = Instance.new(data)
@@ -344,7 +367,7 @@ const Instance = {
             return ancestors
         }
 
-        instance.GetAllOfClass = function(name) {
+        instance.GetInstancesOfClass = function(name) {
             let descendents = instance.GetDescendents()
             let elements = {}
 
@@ -357,7 +380,7 @@ const Instance = {
             return elements
         }
 
-        instance.GetInstancesOfClass = instance.GetAllOfClass
+        instance.GetAllOfClass = instance.GetInstancesOfClass
 
         instance.GetInstancesOfType = function(name) {
             let descendents = instance.GetDescendents()

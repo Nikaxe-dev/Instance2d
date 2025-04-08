@@ -4,6 +4,7 @@ const Enum = {
         "Image": "DrawTypeImage",
         "PixelImage": "DrawTypePixelImage",
         "Circle": "DrawTypeCircle",
+        "Text": "DrawTypeText",
     },
 
     "CollisionType": {

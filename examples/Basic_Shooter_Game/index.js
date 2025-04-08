@@ -21,6 +21,12 @@ RunService.GameSpeed = 1
 
 // Initialize the game with the canvas and the gameloop function.
 
+Game.Init(document.getElementById("canvas"))
+
+function getenemycount() {
+    return Object.keys(Screen.GetInstanceOfType("Enemy")).length
+}
+
 function vector2unit(vector, speed) {
     let vec = Vector2.new(vector.x, vector.y)
     let magnitude = vec.Magnitude
@@ -39,8 +45,6 @@ function gameloop() {
 
     RunService.frame()
 }
-
-Game.Init(document.getElementById("canvas"))
 
 function enemy() {
     let instance = Instance.Sprite2d.new({

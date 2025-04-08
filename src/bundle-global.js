@@ -1,3 +1,4 @@
+console.warn("This page is using a bundle version of Instance2d, which may be outdated.")
 
 'use strict';
 
