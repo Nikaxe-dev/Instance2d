@@ -9,4 +9,10 @@ const Convert = {
     }
 }
 
-export {Convert}
+const Table = {
+    "Merge": function(object1 = {}, object2 = {}) {
+        return Object.assign({}, object1, object2)
+    }
+}
+
+export {Convert, Table}
