@@ -4,6 +4,8 @@
 
 ---
 
+Note. I am currently working on a port and complete rewrite of this framework to typescript. After the update, much of the documentation (Including this) will be completely wrong. I will still keep a copy of the framework from when it was in javascript though.
+
 ## Introduction
 
 Instance2d is a JavaScript framework where each game object (referred to as an Instance) can have a parent and a child, allowing you to organize your games in various ways.
