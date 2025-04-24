@@ -4,18 +4,18 @@ import { InstanceRunService, RunServiceFactory } from "./RunService.js"
 import { InstanceScreen, ScreenFactory } from "./Screen.js"
 
 interface InstanceGame extends InstanceService {
-    Canvas?: HTMLCanvasElement,
-    Init?: Function,
-    Start?: Function,
+    Canvas: HTMLCanvasElement,
+    Init: Function,
+    Start: Function,
 
-    Screen?: InstanceScreen,
-    Nowhere?: InstanceNowhere,
-    RunService?: InstanceRunService,
+    Screen: InstanceScreen,
+    Nowhere: InstanceNowhere,
+    RunService: InstanceRunService,
 }
 
 const GameFactory = {
     new: function(Canvas: HTMLCanvasElement) {
-        let instance: InstanceGame = Service.new("Game", null)
+        let instance = Service.new("Game", null) as InstanceGame
         instance.Canvas = Canvas
 
         ScreenFactory.new(instance)

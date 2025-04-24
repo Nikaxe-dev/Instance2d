@@ -10,7 +10,7 @@ interface InstanceService extends InstanceInstance {
 
 const Service = {
     new: function(Name: string = "Instance", Parent: InstanceInstance | null = null) {
-        let instance: InstanceService = Instance.new(Name, Name, Parent)
+        let instance = Instance.new(Name, Name, Parent) as InstanceService
 
         return instance
     }

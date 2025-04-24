@@ -8,7 +8,7 @@ interface InstanceRunService extends InstanceService {
 
 const RunServiceFactory = {
     new: function(Parent: InstanceGame) {
-        let instance: InstanceRunService = Service.new("RunService", Parent)
+        let instance = Service.new("RunService", Parent) as InstanceRunService
 
         return instance
     }

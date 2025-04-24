@@ -4,12 +4,12 @@ import { InstanceService, Service } from "../Instances/Service.js"
 import { InstanceGame } from "./Game.js"
 
 interface InstanceScreen extends InstanceService {
-    Camera?: InstanceCamera2d | null
+    Camera: InstanceCamera2d | null
 }
 
 const ScreenFactory = {
     new: function(Parent: InstanceGame) {
-        let instance: InstanceScreen = Service.new("Screen", Parent)
+        let instance = Service.new("Screen", Parent) as InstanceScreen
         instance.Camera = null
 
         return instance

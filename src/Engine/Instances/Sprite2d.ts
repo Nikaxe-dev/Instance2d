@@ -5,15 +5,15 @@ import { Instance2d, InstanceInstance2d } from "./Instance2d.js"
 // Instance with a position (x, y), velocity (xv, yv), and a size (width, height)
 
 interface InstanceSprite2d extends InstanceInstance2d {
-    Width?: number,
-    Height?: number,
+    Width: number,
+    Height: number,
 
-    DrawType?: EnumDrawType,
+    DrawType: EnumDrawType,
 }
 
 const Sprite2d = {
     new: function(Name: string = "Instance", Id: string = "Instance", Parent: InstanceInstance | null = null) {
-        const instance: InstanceSprite2d = Instance2d.new(Name, Id, Parent)
+        const instance = Instance2d.new(Name, Id, Parent) as InstanceSprite2d
         instance.x = 0
         instance.y = 0
 

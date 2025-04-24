@@ -10,6 +10,18 @@ interface InstanceInstance {
 
     GetChildren?: Function,
     Move: Function,
+
+    SetAttribute: Function,
+    GetAttribute: Function,
+    GetAttributes: Function,
+
+    Attributes: { [key: string]: any },
+
+    HasTag: Function,
+    AddTag: Function,
+    GetTags: Function,
+
+    Tags: string[],
 }
 
 const Instance = {
@@ -20,6 +32,8 @@ const Instance = {
             ParentValue: null,
 
             Children: {},
+
+            // Parent Child
 
             Move: function(parent: InstanceInstance) {
                 if(parent === undefined || parent === null) {
@@ -46,10 +60,42 @@ const Instance = {
                 }
 
                 instance.ParentValue = parent
-            }
+            },
+
+            // Attributes
+
+            Attributes: {},
+
+            SetAttribute: function(name: string, value: any) {
+                instance.Attributes[name] = value
+            },
+
+            GetAttribute: function(name: string) {
+                return instance.Attributes[name]
+            },
+
+            GetAttributes: function() {
+                return instance.Attributes
+            },
+
+            // Tags
+
+            Tags: [],
+
+            HasTag: function(name: string) {
+                return instance.Tags.includes(name)
+            },
+
+            AddTag: function(name: string) {
+                instance.Tags.push(name)
+            },
+
+            GetTags: function() {
+                return instance.Tags
+            },
         }
 
-        // Functions
+        // Parent Child
 
         Object.defineProperty(instance, "Parent", {
             get: function() {

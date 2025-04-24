@@ -7,7 +7,7 @@ interface InstanceNowhere extends InstanceService {
 
 const NowhereFactory = {
     new: function(Parent: InstanceGame) {
-        let instance: InstanceNowhere = Service.new("Nowhere", Parent)
+        let instance = Service.new("Nowhere", Parent) as InstanceNowhere
 
         return instance
     }
