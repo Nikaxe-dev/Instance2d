@@ -9,6 +9,8 @@ interface InstanceGame extends InstanceService {
     Start?: Function,
 
     Screen?: InstanceScreen,
+    Nowhere?: InstanceNowhere,
+    RunService?: InstanceRunService,
 }
 
 const GameFactory = {

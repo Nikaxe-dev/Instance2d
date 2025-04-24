@@ -1,8 +1,8 @@
 import { Enum } from "../Data/Enum.js";
-import { Instance } from "./Instance.js";
-const Instance2d = {
+import { Instance2d } from "./Instance2d.js";
+const Sprite2d = {
     new: function (Name = "Instance", Id = "Instance", Parent = null) {
-        const instance = Instance.new(Name, Id, Parent);
+        const instance = Instance2d.new(Name, Id, Parent);
         instance.x = 0;
         instance.y = 0;
         instance.xv = 0;
@@ -13,4 +13,4 @@ const Instance2d = {
         return instance;
     }
 };
-export { Instance2d };
+export { Sprite2d };

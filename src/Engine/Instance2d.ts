@@ -5,7 +5,7 @@ interface Instace2d {
     new: Function,
 }
 
-const Instance2d: Instace2d = {
+const Instance2dEngine: Instace2d = {
     new: function(Canvas: HTMLCanvasElement, Name: string, Id: string) {
         const game: InstanceGame = GameFactory.new(Canvas)
 
@@ -13,4 +13,4 @@ const Instance2d: Instace2d = {
     }
 }
 
-export {Instance2d}
+export {Instance2dEngine}
