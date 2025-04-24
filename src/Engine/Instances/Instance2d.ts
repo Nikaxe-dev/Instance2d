@@ -1,4 +1,4 @@
-import { Instance, InstanceInstance } from "./Instance"
+import { Instance, InstanceInstance } from "./Instance.js"
 
 // Instance with a position (x, y) and velocity (xv, yv)
 

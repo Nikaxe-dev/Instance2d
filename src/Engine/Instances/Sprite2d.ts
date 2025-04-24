@@ -1,15 +1,10 @@
-import { Enum, EnumDrawType } from "../Data/Enum"
-import { Instance, InstanceInstance } from "./Instance"
+import { Enum, EnumDrawType } from "../Data/Enum.js"
+import { Instance, InstanceInstance } from "./Instance.js"
+import { InstanceInstance2d } from "./Instance2d.js"
 
 // Instance with a position (x, y), velocity (xv, yv), and a size (width, height)
 
-interface InstanceInstance2d extends InstanceInstance {
-    x?: number,
-    y?: number,
-
-    xv?: number,
-    yv?: number,
-
+interface InstanceSprite2d extends InstanceInstance2d {
     Width?: number,
     Height?: number,
 
@@ -18,7 +13,7 @@ interface InstanceInstance2d extends InstanceInstance {
 
 const Instance2d = {
     new: function(Name: string = "Instance", Id: string = "Instance", Parent: InstanceInstance | null = null) {
-        const instance: InstanceInstance2d = Instance.new(Name, Id, Parent)
+        const instance: InstanceSprite2d = Instance.new(Name, Id, Parent)
         instance.x = 0
         instance.y = 0
 
@@ -34,4 +29,4 @@ const Instance2d = {
     }
 }
 
-export {InstanceInstance2d, Instance2d}
+export {InstanceSprite2d, Instance2d}

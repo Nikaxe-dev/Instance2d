@@ -2,8 +2,9 @@
     "compilerOptions": {
       "outDir": "./build",
       "rootDir": "./src",
-      "module": "commonjs",
-      "target": "es6",
+      "module": "ESNext",
+      "target": "ESNext",
+      "moduleResolution": "Node",
       "strict": true,
       "esModuleInterop": true
     },
