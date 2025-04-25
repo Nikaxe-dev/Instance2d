@@ -5,7 +5,13 @@ const Instance = {
             Name: Name,
             Id: Id,
             ParentValue: null,
+            Parent: null,
             Children: {},
+            // FrameTasks
+            FrameTasks: [],
+            AddFrameTask: function (func) {
+                instance.FrameTasks.push(func);
+            },
             // Parent Child
             Move: function (parent) {
                 if (parent === undefined || parent === null) {
@@ -26,6 +32,20 @@ const Instance = {
                     delete instance.ParentValue.Children[instance.Name];
                 }
                 instance.ParentValue = parent;
+            },
+            GetChildren: function () {
+                const children = Object.values(instance.Children);
+                return children;
+            },
+            GetDescendents: function () {
+                let descendents = [];
+                instance.GetChildren().forEach((value, index) => {
+                    descendents.push(value);
+                    value.GetChildren().forEach((value2, index2) => {
+                        descendents.push(value2);
+                    });
+                });
+                return descendents;
             },
             // Attributes
             Attributes: {},

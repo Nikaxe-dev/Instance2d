@@ -6,6 +6,14 @@ const Instance2d = {
         instance.y = 0;
         instance.xv = 0;
         instance.yv = 0;
+        instance.Rotation = 0;
+        instance.RotVelocity = 0;
+        // FrameTasks
+        instance.AddFrameTask((Game) => {
+            instance.x += instance.xv;
+            instance.y += instance.yv;
+            instance.Rotation += instance.RotVelocity;
+        });
         return instance;
     }
 };

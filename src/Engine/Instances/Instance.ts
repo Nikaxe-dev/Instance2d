@@ -4,24 +4,30 @@ interface InstanceInstance {
     Name: string,
     Id: string,
     ParentValue: InstanceInstance | null,
-    Parent?: InstanceInstance | null,
+    Parent: InstanceInstance | null,
 
     Children: { [key: string]: InstanceInstance },
 
-    GetChildren?: Function,
-    Move: Function,
+    GetChildren(): InstanceInstance[],
+    GetDescendents(): InstanceInstance[],
 
-    SetAttribute: Function,
-    GetAttribute: Function,
-    GetAttributes: Function,
+    Move(parent: InstanceInstance): undefined,
+
+    SetAttribute(name: string, value: any): undefined,
+    GetAttribute(name: string): any,
+    GetAttributes(): object,
 
     Attributes: { [key: string]: any },
 
-    HasTag: Function,
-    AddTag: Function,
-    GetTags: Function,
+    HasTag(name: string): boolean,
+    AddTag(name: string): undefined,
+    GetTags(): object,
 
     Tags: string[],
+
+    FrameTasks: Function[],
+
+    AddFrameTask(func: Function): undefined,
 }
 
 const Instance = {
@@ -30,8 +36,19 @@ const Instance = {
             Name: Name,
             Id: Id,
             ParentValue: null,
+            Parent: null,
 
             Children: {},
+
+            // FrameTasks
+
+            FrameTasks: [
+
+            ],
+
+            AddFrameTask: function(func) {
+                instance.FrameTasks.push(func)
+            },
 
             // Parent Child
 
@@ -60,6 +77,25 @@ const Instance = {
                 }
 
                 instance.ParentValue = parent
+            },
+
+            GetChildren: function() {
+                const children: InstanceInstance[] = Object.values(instance.Children)
+                return children
+            },
+
+            GetDescendents: function() {
+                let descendents: InstanceInstance[] = []
+
+                instance.GetChildren().forEach((value, index) => {
+                    descendents.push(value)
+
+                    value.GetChildren().forEach((value2, index2) => {
+                        descendents.push(value2)
+                    })
+                })
+
+                return descendents
             },
 
             // Attributes

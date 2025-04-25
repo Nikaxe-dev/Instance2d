@@ -1,12 +1,16 @@
+import { InstanceGame } from "../Services/Game.js"
 import { Instance, InstanceInstance } from "./Instance.js"
 
-// Instance with a position (x, y) and velocity (xv, yv)
+// Instance with a position (x, y) and velocity (xv, yv), and rotation (r, rv)
 
 interface InstanceInstance2d extends InstanceInstance {
     x: number,
     y: number,
+    Rotation: number,
+
     xv: number,
     yv: number,
+    RotVelocity: number,
 }
 
 const Instance2d = {
@@ -16,6 +20,17 @@ const Instance2d = {
         instance.y = 0
         instance.xv = 0
         instance.yv = 0
+        instance.Rotation = 0
+        instance.RotVelocity = 0
+
+        // FrameTasks
+
+        instance.AddFrameTask((Game: InstanceGame) => {
+            instance.x += instance.xv
+            instance.y += instance.yv
+
+            instance.Rotation += instance.RotVelocity
+        })
 
         return instance
     }

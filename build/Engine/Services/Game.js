@@ -9,9 +9,9 @@ const GameFactory = {
         ScreenFactory.new(instance);
         NowhereFactory.new(instance);
         RunServiceFactory.new(instance);
-        instance.Init = function () {
-        };
-        instance.Start = function () {
+        instance.RunService.ProcessInstancesUnder = instance.Screen;
+        instance.Start = function (gameloop) {
+            setInterval(gameloop, instance.RunService.FrameTimeout);
         };
         return instance;
     }
