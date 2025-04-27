@@ -2,7 +2,7 @@ import { GameFactory, InstanceGame } from "./Services/Game.js"
 import { InstanceInstance } from "./Instances/Instance"
 
 interface Instace2d {
-    instance(Canvas: HTMLElement | HTMLCanvasElement | null): any,
+    instance(Canvas: HTMLCanvasElement | null): any,
 }
 
 const Instance2dEngine: Instace2d = {

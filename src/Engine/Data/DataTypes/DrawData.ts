@@ -1,7 +1,8 @@
-import { Enum, EnumDrawType } from "../Enum";
-import { Color3, DataColor3 } from "./Color3";
+import { Enum, EnumDrawType } from "../Enum.js";
+import { Color3, DataColor3 } from "./Color3.js";
+import { DataDataType, DataType } from "./DataType.js";
 
-interface DataDrawData {
+interface DataDrawData extends DataDataType {
     Type: EnumDrawType
     Data: string | DataColor3
     Gui: boolean
@@ -10,12 +11,15 @@ interface DataDrawData {
 
 const DrawData = {
     new: function(type: EnumDrawType = Enum.DrawType.Rectangle, data: string | DataColor3 = Color3.new(255, 255, 255), gui: boolean = false, render: boolean = true) {
-        return {
-            Type: type,
-            Data: data,
-            Gui: gui,
-            Render: render,
-        } as DataDrawData
+        let frame = DataType.new() as DataDrawData
+        frame.Type = type
+        frame.Data = data
+        frame.Gui = gui
+        frame.Render = render
+
+        frame.DataType = DrawData
+
+        return frame
     }
 }
 

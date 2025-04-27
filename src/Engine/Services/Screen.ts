@@ -1,3 +1,4 @@
+import { Color3, DataColor3 } from "../Data/DataTypes/Color3.js"
 import { InstanceCamera2d } from "../Instances/Camera2d.js"
 import { Instance, InstanceInstance } from "../Instances/Instance.js"
 import { InstanceService, Service } from "../Instances/Service.js"
@@ -5,10 +6,11 @@ import { InstanceGame } from "./Game.js"
 
 interface InstanceScreen extends InstanceService {
     Camera: InstanceCamera2d | null
-    Canvas: HTMLElement | HTMLCanvasElement | null
 
     Width: number
     Height: number
+
+    BackgroundColor3: DataColor3
 }
 
 const ScreenFactory = {
@@ -18,6 +20,8 @@ const ScreenFactory = {
 
         instance.Width = window.innerWidth
         instance.Height = window.innerHeight
+
+        instance.BackgroundColor3 = Color3.new(0, 0, 0)
 
         instance.Derived = this.Derived
         instance.Base = this.Base

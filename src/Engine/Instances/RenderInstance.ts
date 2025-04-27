@@ -8,7 +8,7 @@ import { Instance2d, InstanceInstance2d } from "./Instance2d.js"
 interface InstanceRenderInstance extends InstanceInstance2d {
     DrawData: DataDrawData
 
-    Render(Game: InstanceGame): undefined
+    Render(Game: InstanceGame, Context: WebGL2RenderingContext | CanvasRenderingContext2D): undefined
 }
 
 const RenderInstance = {

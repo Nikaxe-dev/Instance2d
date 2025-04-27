@@ -1,4 +1,5 @@
 import { InstanceInstance } from "../Instances/Instance.js"
+import { InstanceRenderInstance, RenderInstance } from "../Instances/RenderInstance.js"
 import { InstanceService, Service } from "../Instances/Service.js"
 import { InstanceGame } from "./Game.js"
 
@@ -39,6 +40,9 @@ const RunServiceFactory = {
         instance.Frame = function() {
             const process = instance.ProcessInstancesUnder.GetDescendents()
             instance.InstanceLogic(process)
+
+            const render = process.filter(instance => instance.IsA(RenderInstance)) as InstanceRenderInstance[]
+            Game.RenderService.Render(render)
         }
 
         instance.Derived = this.Derived

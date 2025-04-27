@@ -1,5 +1,6 @@
 import { DataDrawData, DrawData } from "../Data/DataTypes/DrawData.js"
 import { Enum, EnumDrawType } from "../Data/Enum.js"
+import { RgbToHex } from "../Utils.js"
 import { Instance, InstanceInstance } from "./Instance.js"
 import { Instance2d, InstanceInstance2d } from "./Instance2d.js"
 import { InstanceRenderInstance, RenderInstance } from "./RenderInstance.js"
@@ -21,8 +22,19 @@ const Sprite2d = {
         instance.Base = this.Base
         instance.Class = Sprite2d
 
-        instance.Render = (Game) => {
-            
+        instance.Render = (game, context) => {
+            if(context instanceof CanvasRenderingContext2D) {
+                if(instance.DrawData.Type == Enum.DrawType.Rectangle) {
+                    if(instance.DrawData.Data instanceof Object) {
+                        context.fillStyle = RgbToHex(instance.DrawData.Data)
+                        context.globalAlpha = instance.DrawData.Data.a
+                    } else {
+                        context.fillStyle = instance.DrawData.Data
+                    }
+
+                    context.fillRect(instance.x, -instance.y, instance.Width, instance.Height)
+                }
+            }
         }
 
         return instance

@@ -1,5 +1,6 @@
 import { Service } from "../Instances/Service.js";
 import { NowhereFactory } from "./Nowhere.js";
+import { RenderServiceFactory } from "./RenderService.js";
 import { RunServiceFactory } from "./RunService.js";
 import { ScreenFactory } from "./Screen.js";
 const GameFactory = {
@@ -8,7 +9,9 @@ const GameFactory = {
         ScreenFactory.new(instance);
         NowhereFactory.new(instance);
         RunServiceFactory.new(instance);
-        instance.Screen.Canvas = Canvas;
+        RenderServiceFactory.new(instance);
+        instance.RenderService.Canvas = Canvas;
+        instance.RenderService.Init(instance);
         instance.RunService.ProcessInstancesUnder = instance.Screen;
         instance.Start = function (gameloop) {
             setInterval(gameloop, instance.RunService.FrameTimeout);
