@@ -1,3 +1,4 @@
+import { DataDrawData, DrawData } from "../Data/DataTypes/DrawData.js"
 import { Enum, EnumDrawType } from "../Data/Enum.js"
 import { Instance, InstanceInstance } from "./Instance.js"
 import { Instance2d, InstanceInstance2d } from "./Instance2d.js"
@@ -5,10 +6,10 @@ import { Instance2d, InstanceInstance2d } from "./Instance2d.js"
 // Instance with a position (x, y), velocity (xv, yv), and a size (width, height)
 
 interface InstanceSprite2d extends InstanceInstance2d {
-    Width: number,
-    Height: number,
+    Width: number
+    Height: number
 
-    DrawType: EnumDrawType,
+    DrawData: DataDrawData
 }
 
 const Sprite2d = {
@@ -23,7 +24,7 @@ const Sprite2d = {
         instance.Width = 0
         instance.Height = 0
 
-        instance.DrawType = Enum.DrawType.Rectangle
+        instance.DrawData = DrawData.new()
 
         return instance
     }

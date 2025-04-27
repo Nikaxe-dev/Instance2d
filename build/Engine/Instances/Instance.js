@@ -8,9 +8,9 @@ const Instance = {
             Parent: null,
             Children: {},
             // FrameTasks
-            FrameTasks: [],
-            AddFrameTask: function (func) {
-                instance.FrameTasks.push(func);
+            FrameTasks: {},
+            AddFrameTask: function (name, func) {
+                instance.FrameTasks[name] = func;
             },
             // Parent Child
             Move: function (parent) {

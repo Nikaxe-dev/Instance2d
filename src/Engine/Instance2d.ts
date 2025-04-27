@@ -6,7 +6,7 @@ interface Instace2d {
 }
 
 const Instance2dEngine: Instace2d = {
-    instance: function(Canvas: HTMLElement | HTMLCanvasElement | null) {
+    instance: function(Canvas) {
         const game: InstanceGame = GameFactory.new(Canvas)
 
         return game

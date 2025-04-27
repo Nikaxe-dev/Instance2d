@@ -4,8 +4,6 @@ import { InstanceRunService, RunServiceFactory } from "./RunService.js"
 import { InstanceScreen, ScreenFactory } from "./Screen.js"
 
 interface InstanceGame extends InstanceService {
-    Canvas: HTMLElement | HTMLCanvasElement | null,
-
     Start(gameloop: Function): any,
 
     Screen: InstanceScreen,
@@ -16,12 +14,12 @@ interface InstanceGame extends InstanceService {
 const GameFactory = {
     new: function(Canvas: HTMLElement | HTMLCanvasElement | null) {
         let instance = Service.new("Game", null) as InstanceGame
-        instance.Canvas = Canvas
 
         ScreenFactory.new(instance)
         NowhereFactory.new(instance)
         RunServiceFactory.new(instance)
 
+        instance.Screen.Canvas = Canvas
         instance.RunService.ProcessInstancesUnder = instance.Screen
 
         instance.Start = function(gameloop: Function) {

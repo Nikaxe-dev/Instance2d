@@ -23,9 +23,9 @@ const RunServiceFactory = {
 
         instance.InstanceLogic = function(instances) {
             instances.forEach((instance, index) => {
-                instance.FrameTasks.forEach((value, index) => {
+                for(const [key, value] of Object.entries(instance.FrameTasks)) {
                     value(Game)
-                })
+                }
             })
         }
 

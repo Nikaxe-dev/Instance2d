@@ -9,7 +9,7 @@ const Instance2d = {
         instance.Rotation = 0;
         instance.RotVelocity = 0;
         // FrameTasks
-        instance.AddFrameTask((Game) => {
+        instance.AddFrameTask("Velocity", (Game) => {
             instance.x += instance.xv;
             instance.y += instance.yv;
             instance.Rotation += instance.RotVelocity;

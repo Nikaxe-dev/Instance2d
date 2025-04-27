@@ -25,9 +25,9 @@ interface InstanceInstance {
 
     Tags: string[],
 
-    FrameTasks: Function[],
+    FrameTasks: { [key: string]: Function },
 
-    AddFrameTask(func: Function): undefined,
+    AddFrameTask(name: string, func: Function): undefined,
 }
 
 const Instance = {
@@ -42,12 +42,12 @@ const Instance = {
 
             // FrameTasks
 
-            FrameTasks: [
+            FrameTasks: {
 
-            ],
+            },
 
-            AddFrameTask: function(func) {
-                instance.FrameTasks.push(func)
+            AddFrameTask: function(name, func) {
+                instance.FrameTasks[name] = func
             },
 
             // Parent Child

@@ -25,7 +25,7 @@ const Instance2d = {
 
         // FrameTasks
 
-        instance.AddFrameTask((Game: InstanceGame) => {
+        instance.AddFrameTask("Velocity", (Game: InstanceGame) => {
             instance.x += instance.xv
             instance.y += instance.yv
 

@@ -1,4 +1,4 @@
-import { Enum } from "../Data/Enum.js";
+import { DrawData } from "../Data/DataTypes/DrawData.js";
 import { Instance2d } from "./Instance2d.js";
 const Sprite2d = {
     new: function (Name = "Instance", Id = "Instance", Parent = null) {
@@ -9,7 +9,7 @@ const Sprite2d = {
         instance.yv = 0;
         instance.Width = 0;
         instance.Height = 0;
-        instance.DrawType = Enum.DrawType.Rectangle;
+        instance.DrawData = DrawData.new();
         return instance;
     }
 };
