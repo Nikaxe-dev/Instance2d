@@ -5,7 +5,12 @@ const ScreenFactory = {
         instance.Camera = null;
         instance.Width = window.innerWidth;
         instance.Height = window.innerHeight;
+        instance.Derived = this.Derived;
+        instance.Base = this.Base;
+        instance.Class = ScreenFactory;
         return instance;
-    }
+    },
+    Derived: Service,
+    Base: Service
 };
 export { ScreenFactory };

@@ -8,12 +8,17 @@ const Instance2d = {
         instance.yv = 0;
         instance.Rotation = 0;
         instance.RotVelocity = 0;
+        instance.Derived = this.Derived;
+        instance.Base = this.Base;
+        instance.Class = Instance2d;
         instance.AddFrameTask("Velocity", (Game) => {
             instance.x += instance.xv;
             instance.y += instance.yv;
             instance.Rotation += instance.RotVelocity;
         });
         return instance;
-    }
+    },
+    Derived: Instance,
+    Base: Instance,
 };
 export { Instance2d };

@@ -1,16 +1,17 @@
-import { DrawData } from "../Data/DataTypes/DrawData.js";
-import { Instance2d } from "./Instance2d.js";
+import { RenderInstance } from "./RenderInstance.js";
 const Sprite2d = {
     new: function (Name = "Instance", Id = "Instance", Parent = null) {
-        const instance = Instance2d.new(Name, Id, Parent);
-        instance.x = 0;
-        instance.y = 0;
-        instance.xv = 0;
-        instance.yv = 0;
+        const instance = RenderInstance.new(Name, Id, Parent);
         instance.Width = 0;
         instance.Height = 0;
-        instance.DrawData = DrawData.new();
+        instance.Derived = this.Derived;
+        instance.Base = this.Base;
+        instance.Class = Sprite2d;
+        instance.Render = (Game) => {
+        };
         return instance;
-    }
+    },
+    Derived: RenderInstance,
+    Base: RenderInstance,
 };
 export { Sprite2d };

@@ -1,7 +1,7 @@
 import { Instance } from "./Instance.js";
 const Service = {
-    new: function (Name = "Instance", Parent = null) {
-        let instance = Instance.new(Name, Name, Parent);
+    new: function (Name = "Instance", Id = "", Parent = null) {
+        let instance = Instance.new(Name, Id, Parent);
         instance.Derived = this.Derived;
         instance.Base = this.Base;
         instance.Class = Service;

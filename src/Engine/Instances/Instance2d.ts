@@ -23,6 +23,10 @@ const Instance2d = {
         instance.Rotation = 0
         instance.RotVelocity = 0
 
+        instance.Derived = this.Derived
+        instance.Base = this.Base
+        instance.Class = Instance2d
+
         // FrameTasks
 
         instance.AddFrameTask("Velocity", (Game: InstanceGame) => {
@@ -33,7 +37,10 @@ const Instance2d = {
         })
 
         return instance
-    }
+    },
+
+    Derived: Instance,
+    Base: Instance,
 }
 
 export {InstanceInstance2d, Instance2d}

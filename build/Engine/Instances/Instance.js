@@ -5,6 +5,9 @@ const Instance = {
             Id: Id,
             ParentValue: null,
             Parent: null,
+            Class: Instance,
+            Derived: null,
+            Base: null,
             Children: {},
             FrameTasks: {},
             AddFrameTask: function (name, func) {
@@ -44,6 +47,38 @@ const Instance = {
                 });
                 return descendents;
             },
+            FindFirstChild: function (name) {
+                instance.GetChildren().forEach((value, index) => {
+                    if (value.Name == name) {
+                        return value;
+                    }
+                });
+                return null;
+            },
+            FindFirstDescendent: function (name) {
+                instance.GetDescendents().forEach((value, index) => {
+                    if (value.Name == name) {
+                        return value;
+                    }
+                });
+                return null;
+            },
+            FindFirstChildOfId: function (name) {
+                instance.GetChildren().forEach((value, index) => {
+                    if (value.Id == name) {
+                        return value;
+                    }
+                });
+                return null;
+            },
+            FindFirstDescendentOfId: function (name) {
+                instance.GetDescendents().forEach((value, index) => {
+                    if (value.Id == name) {
+                        return value;
+                    }
+                });
+                return null;
+            },
             Attributes: {},
             SetAttribute: function (name, value) {
                 instance.Attributes[name] = value;
@@ -64,6 +99,12 @@ const Instance = {
             GetTags: function () {
                 return instance.Tags;
             },
+            IsA: function (type) {
+                return instance.Class == type || instance.Derived == type || instance.Base == type;
+            },
+            IsExactlyA: function (type) {
+                return instance.Class == type;
+            }
         };
         Object.defineProperty(instance, "Parent", {
             get: function () {
@@ -77,6 +118,8 @@ const Instance = {
         });
         instance.Parent = Parent;
         return instance;
-    }
+    },
+    Derived: null,
+    Base: null,
 };
 export { Instance };

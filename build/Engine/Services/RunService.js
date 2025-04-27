@@ -13,11 +13,20 @@ const RunServiceFactory = {
                 }
             });
         };
+        instance.InstanceRendering = function (instances) {
+            instances.forEach((instance, index) => {
+            });
+        };
         instance.Frame = function () {
             const process = instance.ProcessInstancesUnder.GetDescendents();
             instance.InstanceLogic(process);
         };
+        instance.Derived = this.Derived;
+        instance.Base = this.Base;
+        instance.Class = RunServiceFactory;
         return instance;
-    }
+    },
+    Derived: Service,
+    Base: Service
 };
 export { RunServiceFactory };

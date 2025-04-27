@@ -13,7 +13,12 @@ const GameFactory = {
         instance.Start = function (gameloop) {
             setInterval(gameloop, instance.RunService.FrameTimeout);
         };
+        instance.Derived = this.Derived;
+        instance.Base = this.Base;
+        instance.Class = GameFactory;
         return instance;
-    }
+    },
+    Derived: Service,
+    Base: Service
 };
 export { GameFactory };

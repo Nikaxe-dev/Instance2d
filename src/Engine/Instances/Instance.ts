@@ -1,33 +1,54 @@
 // Base of all instances
 
 interface InstanceInstance {
-    Name: string,
-    Id: string,
-    ParentValue: InstanceInstance | null,
-    Parent: InstanceInstance | null,
+    Name: string
+    Id: string
+    ParentValue: InstanceInstance | null
+    Parent: InstanceInstance | null
 
-    Children: { [key: string]: InstanceInstance },
+    Children: { [key: string]: InstanceInstance }
 
-    GetChildren(): InstanceInstance[],
-    GetDescendents(): InstanceInstance[],
+    // Parent Child
 
-    Move(parent: InstanceInstance): undefined,
+    GetChildren(): InstanceInstance[]
+    GetDescendents(): InstanceInstance[]
 
-    SetAttribute(name: string, value: any): undefined,
-    GetAttribute(name: string): any,
-    GetAttributes(): object,
+    FindFirstChild(name: string): InstanceInstance | null
+    FindFirstDescendent(name: string): InstanceInstance | null
 
-    Attributes: { [key: string]: any },
+    FindFirstChildOfId(id: string): InstanceInstance | null
+    FindFirstDescendentOfId(id: string): InstanceInstance | null
 
-    HasTag(name: string): boolean,
-    AddTag(name: string): undefined,
-    GetTags(): object,
+    Move(parent: InstanceInstance): undefined
 
-    Tags: string[],
+    // Attributes / Tags
 
-    FrameTasks: { [key: string]: Function },
+    SetAttribute(name: string, value: any): undefined
+    GetAttribute(name: string): any
+    GetAttributes(): object
 
-    AddFrameTask(name: string, func: Function): undefined,
+    Attributes: { [key: string]: any }
+
+    HasTag(name: string): boolean
+    AddTag(name: string): undefined
+    GetTags(): object
+
+    Tags: string[]
+
+    // FrameTasks
+
+    FrameTasks: { [key: string]: Function }
+
+    AddFrameTask(name: string, func: Function): undefined
+
+    // Types
+
+    Derived: object | null
+    Base: object | null
+    Class: object
+
+    IsA(type: object): boolean
+    IsExactlyA(type: object): boolean
 }
 
 const Instance = {
@@ -37,6 +58,10 @@ const Instance = {
             Id: Id,
             ParentValue: null,
             Parent: null,
+            Class: Instance,
+
+            Derived: null,
+            Base: null,
 
             Children: {},
 
@@ -98,6 +123,46 @@ const Instance = {
                 return descendents
             },
 
+            FindFirstChild: function(name) {
+                instance.GetChildren().forEach((value, index) => {
+                    if(value.Name == name) {
+                        return value
+                    }
+                })
+
+                return null
+            },
+
+            FindFirstDescendent: function(name) {
+                instance.GetDescendents().forEach((value, index) => {
+                    if(value.Name == name) {
+                        return value
+                    }
+                })
+
+                return null
+            },
+
+            FindFirstChildOfId: function(name) {
+                instance.GetChildren().forEach((value, index) => {
+                    if(value.Id == name) {
+                        return value
+                    }
+                })
+
+                return null
+            },
+
+            FindFirstDescendentOfId: function(name) {
+                instance.GetDescendents().forEach((value, index) => {
+                    if(value.Id == name) {
+                        return value
+                    }
+                })
+
+                return null
+            },
+
             // Attributes
 
             Attributes: {},
@@ -129,6 +194,16 @@ const Instance = {
             GetTags: function() {
                 return instance.Tags
             },
+
+            // Types
+
+            IsA: function(type) {
+                return instance.Class == type || instance.Derived == type || instance.Base == type
+            },
+
+            IsExactlyA: function(type) {
+                return instance.Class == type
+            }
         }
 
         // Parent Child
@@ -149,7 +224,10 @@ const Instance = {
         instance.Parent = Parent
 
         return instance
-    }
+    },
+
+    Derived: null,
+    Base: null,
 }
 
 export {InstanceInstance, Instance}
