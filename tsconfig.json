@@ -6,7 +6,8 @@
       "target": "ESNext",
       "moduleResolution": "Node",
       "strict": true,
-      "esModuleInterop": true
+      "esModuleInterop": true,
+      "removeComments": true
     },
     "include": ["src/**/*"]
   }

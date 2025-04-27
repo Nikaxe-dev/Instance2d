@@ -15,7 +15,7 @@ const ScreenFactory = {
     new: function(Parent: InstanceGame) {
         let instance = Service.new("Screen", Parent) as InstanceScreen
         instance.Camera = null
-        
+
         instance.Width = window.innerWidth
         instance.Height = window.innerHeight
 

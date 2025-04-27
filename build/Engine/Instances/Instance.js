@@ -1,4 +1,3 @@
-// Base of all instances
 const Instance = {
     new: function (Name = "Instance", Id = "Instance", Parent = null) {
         let instance = {
@@ -7,12 +6,10 @@ const Instance = {
             ParentValue: null,
             Parent: null,
             Children: {},
-            // FrameTasks
             FrameTasks: {},
             AddFrameTask: function (name, func) {
                 instance.FrameTasks[name] = func;
             },
-            // Parent Child
             Move: function (parent) {
                 if (parent === undefined || parent === null) {
                     return;
@@ -47,7 +44,6 @@ const Instance = {
                 });
                 return descendents;
             },
-            // Attributes
             Attributes: {},
             SetAttribute: function (name, value) {
                 instance.Attributes[name] = value;
@@ -58,7 +54,6 @@ const Instance = {
             GetAttributes: function () {
                 return instance.Attributes;
             },
-            // Tags
             Tags: [],
             HasTag: function (name) {
                 return instance.Tags.includes(name);
@@ -70,7 +65,6 @@ const Instance = {
                 return instance.Tags;
             },
         };
-        // Parent Child
         Object.defineProperty(instance, "Parent", {
             get: function () {
                 return instance.ParentValue;
