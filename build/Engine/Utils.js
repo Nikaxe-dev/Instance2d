@@ -8,4 +8,7 @@ function RgbToHex(color3) {
 function MergeTable(object1, object2) {
     return Object.assign({}, object1, object2);
 }
-export { ComponentToHex, RgbToHex, MergeTable };
+function MagnitudeVector2(x, y) {
+    return x * x + y * y;
+}
+export { ComponentToHex, RgbToHex, MergeTable, MagnitudeVector2 };

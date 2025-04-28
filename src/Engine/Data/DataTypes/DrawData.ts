@@ -4,18 +4,29 @@ import { DataDataType, DataType } from "./DataType.js";
 
 interface DataDrawData extends DataDataType {
     Type: EnumDrawType
-    Data: string | DataColor3
+    
+    Color: DataColor3
+    ImageURL: string
+
+    AnchorPointX: number
+    AnchorPointY: number
+
     Gui: boolean
     Render: boolean
 }
 
 const DrawData = {
-    new: function(type: EnumDrawType = Enum.DrawType.Rectangle, data: string | DataColor3 = Color3.new(255, 255, 255), gui: boolean = false, render: boolean = true) {
+    new: function(type: EnumDrawType = Enum.DrawType.Rectangle, gui: boolean = false, render: boolean = true) {
         let frame = DataType.new() as DataDrawData
         frame.Type = type
-        frame.Data = data
         frame.Gui = gui
         frame.Render = render
+
+        frame.AnchorPointX = 0.5
+        frame.AnchorPointY = 0.5
+
+        frame.Color = Color3.new(255, 255, 255)
+        frame.ImageURL = "/images/Icon.svg"
 
         frame.DataType = DrawData
 

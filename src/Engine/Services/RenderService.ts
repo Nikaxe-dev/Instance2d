@@ -4,6 +4,10 @@ import { InstanceRenderInstance, RenderInstance } from "../Instances/RenderInsta
 import { InstanceService, Service } from "../Instances/Service.js"
 import { InstanceGame } from "./Game.js"
 
+const LoadedImagesDiv: HTMLDivElement = document.createElement("div")
+LoadedImagesDiv.id = "instances2d/images"
+LoadedImagesDiv.style.display = "none"
+
 interface InstanceRenderService extends InstanceService {
     Canvas: HTMLCanvasElement | null
     RenderInstancesUnder: InstanceInstance
@@ -12,6 +16,10 @@ interface InstanceRenderService extends InstanceService {
 
     Render(instances: InstanceRenderInstance[]): undefined
     Init(Game: InstanceGame): undefined
+
+    LoadedImagesDiv: HTMLDivElement
+    LoadedImages: { [key: string]: HTMLImageElement }
+    LoadImage(url: string): HTMLImageElement
 }
 
 const RenderServiceFactory = {
@@ -21,6 +29,27 @@ const RenderServiceFactory = {
         instance.RenderingType = Enum.RenderingType.Canvas
 
         const Screen = Game.Screen
+
+        instance.LoadedImages = {
+
+        }
+
+        instance.LoadedImagesDiv = LoadedImagesDiv
+
+        instance.LoadImage = function(url) {
+            if(instance.LoadedImages[url] != undefined) {
+                return instance.LoadedImages[url]
+            }
+
+            let image = document.createElement("img")
+            image.src = url
+
+            LoadedImagesDiv.appendChild(image)
+
+            instance.LoadedImages[url] = image
+
+            return image
+        }
 
         instance.Init = function(Game) {
             if(!this.Canvas) { return }

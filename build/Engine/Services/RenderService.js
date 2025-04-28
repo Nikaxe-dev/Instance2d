@@ -1,12 +1,27 @@
 import { Enum } from "../Data/Enum.js";
 import { RenderInstance } from "../Instances/RenderInstance.js";
 import { Service } from "../Instances/Service.js";
+const LoadedImagesDiv = document.createElement("div");
+LoadedImagesDiv.id = "instances2d/images";
+LoadedImagesDiv.style.display = "none";
 const RenderServiceFactory = {
     new: function (Game) {
         let instance = Service.new("RenderService", Game);
         instance.RenderInstancesUnder = Game.Screen;
         instance.RenderingType = Enum.RenderingType.Canvas;
         const Screen = Game.Screen;
+        instance.LoadedImages = {};
+        instance.LoadedImagesDiv = LoadedImagesDiv;
+        instance.LoadImage = function (url) {
+            if (instance.LoadedImages[url] != undefined) {
+                return instance.LoadedImages[url];
+            }
+            let image = document.createElement("img");
+            image.src = url;
+            LoadedImagesDiv.appendChild(image);
+            instance.LoadedImages[url] = image;
+            return image;
+        };
         instance.Init = function (Game) {
             if (!this.Canvas) {
                 return;

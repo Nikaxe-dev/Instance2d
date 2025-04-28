@@ -3,9 +3,12 @@ import { InstanceRenderInstance, RenderInstance } from "../Instances/RenderInsta
 import { InstanceService, Service } from "../Instances/Service.js"
 import { InstanceGame } from "./Game.js"
 
+let lastupdate = Date.now()
+
 interface InstanceRunService extends InstanceService {
     DeltaTime: number,
     GameSpeed: number,
+    Speed: number,
     FrameTimeout: number,
 
     ProcessInstancesUnder: InstanceInstance,
@@ -20,6 +23,7 @@ const RunServiceFactory = {
         let instance = Service.new("RunService", Game) as InstanceRunService
         instance.DeltaTime = 1
         instance.GameSpeed = 1
+        instance.Speed = 1
         instance.FrameTimeout = 1/60
         instance.ProcessInstancesUnder = Game.Screen
 
@@ -38,6 +42,13 @@ const RunServiceFactory = {
         }
 
         instance.Frame = function() {
+            const now = Date.now()
+            const deltatime = now - lastupdate
+            lastupdate = now
+
+            instance.DeltaTime = deltatime / 1000
+            instance.Speed = deltatime * instance.GameSpeed
+
             const process = instance.ProcessInstancesUnder.GetDescendents()
             instance.InstanceLogic(process)
 

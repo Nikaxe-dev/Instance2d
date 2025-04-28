@@ -14,4 +14,8 @@ function MergeTable(object1: object, object2: object) {
         return Object.assign({}, object1, object2)
 }
 
-export {ComponentToHex, RgbToHex, MergeTable}
+function MagnitudeVector2(x: number, y: number) {
+    return x*x + y*y
+}
+
+export {ComponentToHex, RgbToHex, MergeTable, MagnitudeVector2}

@@ -5,6 +5,7 @@ interface Enum {
     DrawType: {
         Rectangle: EnumDrawType,
         Image: EnumDrawType,
+        PixelImage: EnumDrawType,
     }
 
     RenderingType: {
@@ -16,6 +17,7 @@ const Enum: Enum = {
     DrawType: {
         Rectangle: "Enum.DrawType.Rectangle",
         Image: "Enum.DrawType.Image",
+        PixelImage: "Enum.Drawtype.PixelImage",
     },
 
     RenderingType: {

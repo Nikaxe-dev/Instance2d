@@ -11,16 +11,25 @@ const Sprite2d = {
         instance.Class = Sprite2d;
         instance.Render = (game, context) => {
             if (context instanceof CanvasRenderingContext2D) {
+                if (instance.DrawData.Color) {
+                    context.fillStyle = RgbToHex(instance.DrawData.Color);
+                }
+                context.translate(instance.x, -instance.y);
+                context.rotate(instance.Rotation * Math.PI / 180);
                 if (instance.DrawData.Type == Enum.DrawType.Rectangle) {
-                    if (instance.DrawData.Data instanceof Object) {
-                        context.fillStyle = RgbToHex(instance.DrawData.Data);
-                        context.globalAlpha = instance.DrawData.Data.a;
+                    context.fillRect(-instance.Width * instance.DrawData.AnchorPointX, -instance.Height * instance.DrawData.AnchorPointY, instance.Width, instance.Height);
+                }
+                if (instance.DrawData.Type == Enum.DrawType.Image || instance.DrawData.Type == Enum.DrawType.PixelImage) {
+                    if (instance.DrawData.Type == Enum.DrawType.PixelImage) {
+                        context.imageSmoothingEnabled = false;
                     }
                     else {
-                        context.fillStyle = instance.DrawData.Data;
+                        context.imageSmoothingEnabled = true;
                     }
-                    context.fillRect(instance.x, -instance.y, instance.Width, instance.Height);
+                    const image = game.RenderService.LoadImage(instance.DrawData.ImageURL);
+                    context.drawImage(image, -instance.Width * instance.DrawData.AnchorPointX, -instance.Height * instance.DrawData.AnchorPointY, instance.Width, instance.Height);
                 }
+                context.resetTransform();
             }
         };
         return instance;
