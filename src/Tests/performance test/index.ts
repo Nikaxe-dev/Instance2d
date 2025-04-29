@@ -11,32 +11,13 @@ game.Screen.BackgroundColor3 = Color3.new(255, 255, 255)
 
 const gravity = 2.5
 
-// const player = Sprite2d.new("Player", "Player", game.Screen)
-// player.xv = 0
-// player.yv = 0
-
-// player.Width = 100
-// player.Height = 100
-
-// player.x = 500
-// player.y = -250
-
-// player.RotVelocity = 1
-
-// player.AddFrameTask("rotationdeltatime", () => {
-//     player.RotVelocity = 100 * game.RunService.DeltaTime
-// })
-
-// player.DrawData = DrawData.new(Enum.DrawType.PixelImage, false, true)
-// player.DrawData.ImageURL = "/images/ExampleResources/player.png"
-
 function createparticle() {
     let particle = Sprite2d.new("Particle" + Math.random() * 1000, "Particle" + Math.random() * 1000, game.Screen)
     particle.Width = 10
     particle.Height = 10
 
-    particle.x = 500
-    particle.y = -250
+    particle.x = 0
+    particle.y = 0
 
     particle.RotVelocity = 100
 

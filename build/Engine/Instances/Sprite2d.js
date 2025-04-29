@@ -14,7 +14,7 @@ const Sprite2d = {
                 if (instance.DrawData.Color) {
                     context.fillStyle = RgbToHex(instance.DrawData.Color);
                 }
-                context.translate(instance.x, -instance.y);
+                context.translate(instance.x + game.Screen.Width / 2, -instance.y + game.Screen.Height / 2);
                 context.rotate(instance.Rotation * Math.PI / 180);
                 if (instance.DrawData.Type == Enum.DrawType.Rectangle) {
                     context.fillRect(-instance.Width * instance.DrawData.AnchorPointX, -instance.Height * instance.DrawData.AnchorPointY, instance.Width, instance.Height);

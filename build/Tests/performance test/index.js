@@ -11,8 +11,8 @@ function createparticle() {
     let particle = Sprite2d.new("Particle" + Math.random() * 1000, "Particle" + Math.random() * 1000, game.Screen);
     particle.Width = 10;
     particle.Height = 10;
-    particle.x = 500;
-    particle.y = -250;
+    particle.x = 0;
+    particle.y = 0;
     particle.RotVelocity = 100;
     particle.DrawData = DrawData.new(Enum.DrawType.PixelImage, false, true);
     particle.DrawData.ImageURL = "/images/ExampleResources/player.png";
