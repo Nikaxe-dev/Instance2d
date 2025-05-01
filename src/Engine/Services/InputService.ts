@@ -4,8 +4,6 @@ import { InstanceGame } from "./Game.js"
 interface InputServiceMouse {
     PositionX: number
     PositionY: number
-
-    
 }
 
 interface InstanceInputService extends InstanceService {

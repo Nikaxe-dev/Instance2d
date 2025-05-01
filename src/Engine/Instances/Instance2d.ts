@@ -34,6 +34,10 @@ const Instance2d = {
             instance.y += instance.yv
 
             instance.Rotation += instance.RotVelocity
+
+            if(instance.Rotation > 360) {
+                instance.Rotation = 0
+            }
         })
 
         return instance
