@@ -4,6 +4,10 @@ import { InstanceGame } from "./Game.js"
 interface InputServiceMouse {
     PositionX: number
     PositionY: number
+
+    Button1Down: boolean
+    Button2Down: boolean
+    Button3Down: boolean
 }
 
 interface InstanceInputService extends InstanceService {
@@ -24,7 +28,9 @@ const InputServiceFactory = {
             PositionX: 0,
             PositionY: 0,
 
-            
+            Button1Down: false,
+            Button2Down: false,
+            Button3Down: false,
         }
 
         instance.Keyboard = {

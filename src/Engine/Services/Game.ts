@@ -1,4 +1,5 @@
 import { InstanceService, Service } from "../Instances/Service.js"
+import { InputServiceFactory, InstanceInputService } from "./InputService.js"
 import { InstanceNowhere, NowhereFactory } from "./Nowhere.js"
 import { InstanceRenderService, RenderServiceFactory } from "./RenderService.js"
 import { InstanceRunService, RunServiceFactory } from "./RunService.js"
@@ -10,7 +11,8 @@ interface InstanceGame extends InstanceService {
     Screen: InstanceScreen,
     Nowhere: InstanceNowhere,
     RunService: InstanceRunService,
-    RenderService: InstanceRenderService
+    RenderService: InstanceRenderService,
+    InputService: InstanceInputService,
 }
 
 const GameFactory = {
@@ -21,6 +23,7 @@ const GameFactory = {
         NowhereFactory.new(instance)
         RunServiceFactory.new(instance)
         RenderServiceFactory.new(instance)
+        InputServiceFactory.new(instance)
         
         instance.RenderService.Canvas = Canvas
         instance.RenderService.Init(instance)

@@ -7,7 +7,6 @@ import { InstanceGame } from "../../Engine/Services/Game.js";
 import { MagnitudeVector2 } from "../../Engine/Utils.js";
 
 const game: InstanceGame = Instance2dEngine.instance(document.getElementById("canvas") as HTMLCanvasElement)
-game.Screen.BackgroundColor3 = Color3.new(255, 255, 255)
 
 const gravity = 2.5
 
