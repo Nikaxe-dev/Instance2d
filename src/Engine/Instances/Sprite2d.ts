@@ -1,0 +1,60 @@
+import { DataDrawData, DrawData } from "../Data/DataTypes/DrawData.js"
+import { Enum, EnumDrawType } from "../Data/Enum.js"
+import { RgbToHex } from "../Utils.js"
+import { Instance, InstanceInstance } from "./Instance.js"
+import { Instance2d, InstanceInstance2d } from "./Instance2d.js"
+import { InstanceRenderInstance, RenderInstance } from "./RenderInstance.js"
+
+// Instance with a position (x, y), velocity (xv, yv), and a size (width, height)
+
+interface InstanceSprite2d extends InstanceRenderInstance {
+    Width: number
+    Height: number
+}
+
+const Sprite2d = {
+    new: function(Name: string = "Instance", Id: string = "Instance", Parent: InstanceInstance | null = null) {
+        const instance = RenderInstance.new(Name, Id, Parent) as InstanceSprite2d
+        instance.Width = 0
+        instance.Height = 0
+
+        instance.Derived = this.Derived
+        instance.Base = this.Base
+        instance.Class = Sprite2d
+
+        instance.Render = (game, context) => {
+            if(context instanceof CanvasRenderingContext2D) {
+                if(instance.DrawData.Color) {
+                    context.fillStyle = RgbToHex(instance.DrawData.Color)
+                }
+
+                context.translate(instance.x + game.Screen.Width / 2, -instance.y + game.Screen.Height / 2)
+                context.rotate(instance.Rotation * Math.PI / 180)
+
+                if(instance.DrawData.Type == Enum.DrawType.Rectangle) {
+                    context.fillRect(-instance.Width * instance.DrawData.AnchorPointX, -instance.Height * instance.DrawData.AnchorPointY, instance.Width, instance.Height)
+                }
+
+                if(instance.DrawData.Type == Enum.DrawType.Image || instance.DrawData.Type == Enum.DrawType.PixelImage) {
+                    if(instance.DrawData.Type == Enum.DrawType.PixelImage) {
+                        context.imageSmoothingEnabled = false
+                    } else {
+                        context.imageSmoothingEnabled = true
+                    }
+
+                    const image = game.RenderService.LoadImage(instance.DrawData.ImageURL)
+                    context.drawImage(image, -instance.Width * instance.DrawData.AnchorPointX, -instance.Height * instance.DrawData.AnchorPointY, instance.Width, instance.Height)
+                }
+
+                context.resetTransform()
+            }
+        }
+
+        return instance
+    },
+
+    Derived: RenderInstance,
+    Base: RenderInstance,
+}
+
+export {InstanceSprite2d, Sprite2d}

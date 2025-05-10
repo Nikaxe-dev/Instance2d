@@ -1,0 +1,48 @@
+import { InstanceService, Service } from "../Instances/Service.js"
+import { InputServiceFactory, InstanceInputService } from "./InputService.js"
+import { InstanceNowhere, NowhereFactory } from "./Nowhere.js"
+import { InstanceRenderService, RenderServiceFactory } from "./RenderService.js"
+import { InstanceRunService, RunServiceFactory } from "./RunService.js"
+import { InstanceScreen, ScreenFactory } from "./Screen.js"
+
+interface InstanceGame extends InstanceService {
+    Start(gameloop: Function): any,
+
+    Screen: InstanceScreen,
+    Nowhere: InstanceNowhere,
+    RunService: InstanceRunService,
+    RenderService: InstanceRenderService,
+    InputService: InstanceInputService,
+}
+
+const GameFactory = {
+    new: function(Canvas: HTMLCanvasElement | null) {
+        let instance = Service.new("Game", null) as InstanceGame
+
+        ScreenFactory.new(instance)
+        NowhereFactory.new(instance)
+        RunServiceFactory.new(instance)
+        RenderServiceFactory.new(instance)
+        InputServiceFactory.new(instance)
+        
+        instance.RenderService.Canvas = Canvas
+        instance.RenderService.Init(instance)
+
+        instance.RunService.ProcessInstancesUnder = instance.Screen
+
+        instance.Start = function(gameloop: Function) {
+            setInterval(gameloop, instance.RunService.FrameTimeout)
+        }
+
+        instance.Derived = this.Derived
+        instance.Base = this.Base
+        instance.Class = GameFactory
+
+        return instance
+    },
+
+    Derived: Service,
+    Base: Service
+}
+
+export {InstanceGame, GameFactory}
