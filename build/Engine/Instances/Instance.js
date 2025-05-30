@@ -33,6 +33,11 @@ const Instance = {
                 }
                 instance.ParentValue = parent;
             },
+            Destroy: function () {
+                if (instance.ParentValue) {
+                    delete instance.ParentValue.Children[instance.Id];
+                }
+            },
             GetChildren: function () {
                 const children = Object.values(instance.Children);
                 return children;

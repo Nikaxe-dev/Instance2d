@@ -1,11 +1,9 @@
-import { Color3 } from "../../Engine/Data/DataTypes/Color3.js";
 import { DrawData } from "../../Engine/Data/DataTypes/DrawData.js";
 import { Enum } from "../../Engine/Data/Enum.js";
 import { Instance2dEngine } from "../../Engine/Instance2d.js";
 import { Sprite2d } from "../../Engine/Instances/Sprite2d.js";
 import { MagnitudeVector2 } from "../../Engine/Utils.js";
 const game = Instance2dEngine.instance(document.getElementById("canvas"));
-game.Screen.BackgroundColor3 = Color3.new(255, 255, 255);
 const gravity = 2.5;
 function createparticle() {
     let particle = Sprite2d.new("Particle" + Math.random() * 1000, "Particle" + Math.random() * 1000, game.Screen);

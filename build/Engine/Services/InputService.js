@@ -5,6 +5,9 @@ const InputServiceFactory = {
         instance.Mouse = {
             PositionX: 0,
             PositionY: 0,
+            Button1Down: false,
+            Button2Down: false,
+            Button3Down: false,
         };
         instance.Keyboard = {};
         instance.KeyDown = function (key) {

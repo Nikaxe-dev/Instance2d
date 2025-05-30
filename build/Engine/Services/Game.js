@@ -1,4 +1,5 @@
 import { Service } from "../Instances/Service.js";
+import { InputServiceFactory } from "./InputService.js";
 import { NowhereFactory } from "./Nowhere.js";
 import { RenderServiceFactory } from "./RenderService.js";
 import { RunServiceFactory } from "./RunService.js";
@@ -10,6 +11,7 @@ const GameFactory = {
         NowhereFactory.new(instance);
         RunServiceFactory.new(instance);
         RenderServiceFactory.new(instance);
+        InputServiceFactory.new(instance);
         instance.RenderService.Canvas = Canvas;
         instance.RenderService.Init(instance);
         instance.RunService.ProcessInstancesUnder = instance.Screen;

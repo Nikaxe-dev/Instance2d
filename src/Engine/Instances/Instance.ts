@@ -20,6 +20,7 @@ interface InstanceInstance {
     FindFirstDescendentOfId(id: string): InstanceInstance | null
 
     Move(parent: InstanceInstance): undefined
+    Destroy(): undefined
 
     // Attributes / Tags
 
@@ -102,6 +103,12 @@ const Instance = {
                 }
 
                 instance.ParentValue = parent
+            },
+
+            Destroy: function() {
+                if(instance.ParentValue) {
+                    delete instance.ParentValue.Children[instance.Id]
+                }
             },
 
             GetChildren: function() {
