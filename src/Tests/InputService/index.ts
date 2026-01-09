@@ -1,6 +1,6 @@
-import { Instance2dEngine } from "../../Engine/Instance2d";
-import { InstanceGame } from "../../Engine/Services/Game";
-import { InstanceInputService } from "../../Engine/Services/InputService";
+import { Instance2dEngine } from "../../Engine/Instance2d.js";
+import { InstanceGame } from "../../Engine/Services/Game.js";
+import { InstanceInputService } from "../../Engine/Services/InputService.js";
 
 
 const game: InstanceGame = Instance2dEngine.instance(document.getElementById("canvas") as HTMLCanvasElement)

@@ -10,4 +10,4 @@
       "removeComments": true
     },
     "include": ["src/**/*"]
-  }
+}

@@ -1,4 +1,4 @@
-import { Instance2dEngine } from "../../Engine/Instance2d";
+import { Instance2dEngine } from "../../Engine/Instance2d.js";
 const game = Instance2dEngine.instance(document.getElementById("canvas"));
 const inputservice = game.InputService;
 function gameloop() {
