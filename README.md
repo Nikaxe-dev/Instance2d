@@ -4,6 +4,8 @@
 
 ---
 
+**THIS PROJECT HAS BEEN ARCHIVED. IF YOU WANT SOMETHING SIMILAR BY ME (THAT I CONSIDER THE SUCCESSOR TO THIS PROJECT), PLEASE CHECK OUT THIS [UNTITLED GAME ENGINE](https://github.com/Nikaxe-dev/untitled-game-engine) I HAVE BEEN WORKING ON.**
+
 ## Introduction
 
 Instance2d is a JavaScript framework where each game object (referred to as an Instance) can have a parent and a child, allowing you to organize your games in various ways.
